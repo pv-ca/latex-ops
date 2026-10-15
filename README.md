@@ -1,108 +1,198 @@
+<div align="center">
+
+**English** · [Português (Brasil)](docs/readme/README_pt-BR.md)
+
 # latex-ops
 
-**LaTeX documents that look published, not exported.** An agent skill for Claude Code, Codex and other [Agent Skills](https://agentskills.io) runtimes that turns notes, drafts and data into well-designed LaTeX, compiles it, and checks the PDF page by page before saying it is done. Works on Windows, macOS and Linux.
+### Academic LaTeX that looks published, not exported.
 
-![A two-page workbook made with latex-ops](docs/showcase/workbook.png)
+[![Agent Skills](https://img.shields.io/badge/Agent_Skills-SKILL.md-5c4ee5?style=flat-square)](https://agentskills.io)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-d97757?style=flat-square)](#install)
+[![Codex](https://img.shields.io/badge/Codex-skill-10a37f?style=flat-square)](#install)
+[![CI: Linux · Windows](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml/badge.svg)](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml)
+![Windows · macOS · Linux](https://img.shields.io/badge/Windows_·_macOS_·_Linux-supported-2f6f8f?style=flat-square)
+[![ABNT](https://img.shields.io/badge/ABNT-abnTeX2-009c3b?style=flat-square)](#what-is-inside)
+[![MIT license](https://img.shields.io/badge/license-MIT-f4c430?style=flat-square)](LICENSE)
 
-## Why
+[Install](#install) · [What it does](#what-it-does) · [Examples](#examples) · [What is inside](#what-is-inside) · [Requirements](#requirements) · [Evaluation](#evaluation) · [FAQ](#faq)
 
-Agents already write LaTeX that compiles. The result usually looks like a default export: weak hierarchy, cramped tables, headings stranded at the bottom of a page, and a claim that "the PDF is ready" from an agent that never looked at it. latex-ops changes three things:
+<code>npx skills add https://github.com/pv-ca/latex-ops --skill latex-ops</code>
 
-- **A design system, not a template folder.** Every document combines a *functional template* (what the reader does with it: workbook, proposal, paper, contract, lab report…) with a *visual preset* (how it looks: Swiss Minimal, Tufte Editorial, Modern Report…). 32 templates × 9 presets, each a compilable reference.
-- **A closed loop.** Compile, read the log, render the pages, look, fix, rebuild. The agent never claims compilation, rendering or accessibility checks that did not happen.
-- **Faithful content.** Nothing invented: missing prices, citations, scores or answer keys are marked `% [CONTENT: ...]`, and every number in a table or plot comes from the user's data or a stated formula.
+<br><br>
 
-## Examples
+<img src="docs/showcase/paper.png" alt="Two pages of a research note produced with latex-ops: theorem, proof, algorithm, plot and table" width="760">
 
-All four were produced with the skill and are in [`examples/`](examples/).
+</div>
 
-| Proposal with an undecided price | Research note with theorem, algorithm, plot and table |
-| --- | --- |
-| ![Proposal](docs/showcase/proposal.png) | ![Paper](docs/showcase/paper.png) |
+---
 
-![Slides](docs/showcase/slides.png)
+You ask your agent for a paper, a thesis chapter, lecture notes or a problem set. It writes LaTeX that compiles, says the PDF is ready, and you open it to find a table running off the page, a heading stranded at the bottom, a plot whose legend covers the data, or a citation it made up.
 
-## What it covers
+**latex-ops** is an [Agent Skill](https://agentskills.io) that changes how the agent works on LaTeX. It chooses a document structure and a visual style that fit the reader, writes the source with the mathematics and statistics done properly, compiles it, renders the pages and looks at them, fixes what it sees, and tells you exactly what it checked. It never invents a citation, a number or a requirement it was not given.
 
-| Area | Includes |
-| --- | --- |
-| Education | Workbook, Assessment Report, Course Plan, Book/Guide, Lecture Notes, Problem Set (with optional solutions) |
-| Academic | Research Article, Conference Paper, Lab Report, Literature Review, Research Proposal, Statistical Report, Response to Reviewers, Classic and Technical Thesis, **ABNT academic work** (abnTeX2, for Brazilian TCC, dissertação and tese) |
-| Professional | CV, Formal Letter, Executive Brief, Memo, Proposal, Invoice & Quote, Meeting Minutes |
-| Legal and admin | Contract, Form |
-| Editorial | Magazine, Brochure, Poster, Portfolio |
-| Technical | Manual, SOP, One-Page Reference |
-| Slides | Minimal Beamer |
-| Rules | Typography and layout, classes and packages, accessibility (tagged PDF), academic papers and venue kits, Beamer, mathematics, statistics, Python/R/Julia/Quarto/Pandoc/Overleaf integration |
-| Repair | Find the root file, fix the first real error with the smallest change, rebuild, report the evidence |
+It is built for academic work first (articles, conference papers, theses, ABNT work in Brazil, proposals, reports, lecture notes, problem sets, posters and talks) and also covers the professional documents in its template set. It runs wherever Agent Skills run, on Windows, macOS and Linux.
 
 ## Install
 
-Copy `skills/latex-ops` into your agent's skills folder:
+Use the [`skills`](https://www.npmjs.com/package/skills) CLI, which installs into Claude Code, Codex and the other agents it supports:
 
-| Agent | Folder |
-| --- | --- |
-| Claude Code | `~/.claude/skills/latex-ops` (or `.claude/skills/` in a project) |
-| Codex | `~/.agents/skills/latex-ops` |
-| Other Agent Skills runtimes | their skills directory |
-
-Or with the [`skills`](https://www.npmjs.com/package/skills) CLI:
-
-```console
+```bash
 npx skills add https://github.com/pv-ca/latex-ops --skill latex-ops
 ```
 
-Then just ask: *"turn these notes into a two-page worksheet"*, *"my thesis stopped compiling after I added fontspec"*, *"format this paper with the IEEE template"*.
+Or copy the folder by hand:
+
+```bash
+git clone https://github.com/pv-ca/latex-ops
+cp -r latex-ops/skills/latex-ops ~/.claude/skills/      # Claude Code
+cp -r latex-ops/skills/latex-ops ~/.agents/skills/      # Codex
+```
+
+On Windows, copy `skills\latex-ops` into `%USERPROFILE%\.claude\skills\` or `%USERPROFILE%\.agents\skills\`. Start a new session afterwards. You also need a TeX distribution: see [Requirements](#requirements); the skill tells you what is missing the first time it runs.
+
+## What it does
+
+```text
+your request ─▶ choose template + preset ─▶ write the source ─▶ compile (build.py)
+                                                                      │
+          report what was checked ◀── fix and rebuild ◀── render and look (preview.py)
+```
+
+- **Two coordinates for every document.** A *functional template* decides what the document must do (a conference paper, a problem set, a response to reviewers) and a *visual preset* decides how it looks (Minimal Research, Tufte Editorial, Kao Textbook…). The venue's official kit always wins over both.
+- **A closed loop.** The agent compiles, reads the log, renders the pages, and looks for the defects a compiler does not report: overflowing tables, stranded headings, nearly empty pages, legends over data, missing glyphs.
+- **Nothing invented.** Missing facts are marked `% [CONTENT: ...]` where they belong. Citations must be checked sources. Numbers in tables and plots come from your data or a stated formula. Claims of "compiled", "checked" or "accessible" are made only when that check ran.
+- **Mathematics and statistics done properly.** Display environments, aligned derivations, theorem systems, declared operators, `siunitx`, `pgfplots` from CSV, regression tables generated by your analysis code, results reported with effect sizes and intervals.
+- **Repairs without collateral damage.** For a broken build it finds the root file, fixes the first real error with the smallest change, never edits official class files, and shows the diff.
+
+## Examples
+
+Each was produced with the skill, compiled and checked page by page. Sources are in [`examples/`](examples/).
+
+| Problem set with solutions from the same source | Research proposal with an undecided budget |
+| --- | --- |
+| <img src="docs/showcase/problem-set.png" alt="Problem set" width="380"> | <img src="docs/showcase/proposal.png" alt="Research proposal" width="380"> |
+
+<img src="docs/showcase/slides.png" alt="Beamer talk" width="760">
+
+Things you can ask:
+
+```text
+Format this paper with the IEEE conference template and tell me which requirements it still fails.
+```
+```text
+Write lecture notes on the Cauchy–Schwarz inequality with a full proof, two examples and three exercises.
+```
+```text
+Here is results.csv. Make a two-page statistical report with a regression table and a scatter plot.
+```
+```text
+Monte a estrutura do meu TCC nas normas ABNT com capa, folha de rosto, resumo e abstract.
+```
+```text
+My thesis stopped compiling after I added fontspec. Fix it without touching anything else.
+```
+
+## What is inside
+
+| Area | Templates |
+| --- | --- |
+| Research | Research Article · Conference Paper (review and camera-ready) · Literature Review · Research Proposal · Response to Reviewers · Scientific Poster |
+| Theses | Classic Thesis · Technical Thesis · **ABNT academic work** with abnTeX2 (TCC, monografia, dissertação, tese) |
+| Data and lab | Statistical Report (pgfplots from CSV) · Lab Report (units and uncertainty) |
+| Teaching | Lecture Notes (theorem system) · Problem Set (solutions switch) · Course Plan · Assessment Report · Book / Guide |
+| Professional | CV · Formal Letter · Executive Brief · Memo · Proposal · Invoice & Quote · Contract · Meeting Minutes · Technical Manual · SOP · One-Page Reference · Form · Magazine · Brochure · Portfolio |
+| Visual presets | Minimal Research · Classic Editorial · Tufte Editorial · Kao Textbook · Swiss Minimal · Modern Report · Legal Minimal · Magazine Editorial · Minimal Beamer |
+
+31 document templates and 9 presets, each a compilable `.tex` reference the agent adapts rather than copies.
+
+| Reference the agent reads when needed | Covers |
+| --- | --- |
+| [`design-rules.md`](skills/latex-ops/references/design-rules.md) | Typography, classes and packages, components, accessibility, academic papers and venue kits, Beamer |
+| [`math.md`](skills/latex-ops/references/math.md) | Fonts and engines, display environments, alignment, notation, theorems, matrices, units, algorithms, plots, checking the mathematics, common errors |
+| [`statistics.md`](skills/latex-ops/references/statistics.md) | Where numbers come from, reporting tests and models, decimal-aligned tables, regression tables, statistical plots |
+| [`integrations.md`](skills/latex-ops/references/integrations.md) | Python, R, Julia, Quarto, Pandoc, TikZ systems, Overleaf |
+| [`platforms.md`](skills/latex-ops/references/platforms.md) | TeX Live, TinyTeX, MiKTeX, Linux packages, Windows specifics, fonts |
+
+| Script (Python 3.8+, standard library only) | Does |
+| --- | --- |
+| `check_env.py` | Detects the distribution, engines, latexmk, PDF renderer and missing packages; `--install` shows the install command, `--install --yes` runs it after you agree |
+| `build.py file.tex` | Compiles with latexmk, or the engine plus biber/bibtex until references settle; shell escape off; prints errors with file and line, undefined references, missing glyphs, overfull boxes |
+| `preview.py file.pdf --pages 1-3` | Renders pages to PNG with pdftoppm, mutool or Ghostscript so the agent can look at them |
 
 ## Requirements
 
-- A TeX distribution with LuaLaTeX. **TeX Live** or **TinyTeX** recommended; **MiKTeX** works (install Perl for `latexmk`).
-- Python 3.8+ for the helper scripts (standard library only).
+- A TeX distribution with LuaLaTeX: **TeX Live** or **TinyTeX** recommended; **MiKTeX** works.
+- Python 3.8 or newer for the helper scripts.
 
-The skill checks the machine on first use and tells you exactly what is missing:
+The skill runs `check_env.py` the first time and when a build fails for reasons outside the document, and tells you what to do:
 
-```console
-python skills/latex-ops/scripts/check_env.py            # report
-python skills/latex-ops/scripts/check_env.py --install  # show the install command
-```
-
-| You have | The skill suggests |
+| You have | It suggests |
 | --- | --- |
-| Nothing | TinyTeX (no administrator rights needed), then `tlmgr install` the listed packages |
+| No TeX at all | [TinyTeX](https://yihui.org/tinytex) (per-user, no administrator rights), then `tlmgr install` the listed packages |
 | TeX Live or TinyTeX | `tlmgr install <missing packages>` |
-| MiKTeX | `miktex packages install <missing packages>`, plus Perl for `latexmk` |
-| TeX Live from apt, dnf, pacman or zypper | the matching system command (it never runs `sudo` itself) |
+| MiKTeX | `miktex packages install <missing packages>`, plus Strawberry Perl for latexmk |
+| TeX Live from apt, dnf, pacman or zypper | The matching system command (it never runs `sudo` itself) |
 
-Installing anything always waits for your confirmation. The full list of packages the templates use is in [`assets/requirements.txt`](skills/latex-ops/assets/requirements.txt).
-
-## Scripts
-
-| Script | Does |
-| --- | --- |
-| `check_env.py` | Detects distribution, engines, latexmk, PDF renderer and missing packages |
-| `build.py file.tex` | Compiles with latexmk (or the engine plus biber/bibtex), shell escape off, and prints errors with file and line, undefined references and citations, missing glyphs and overfull boxes |
-| `preview.py file.pdf --pages 1-3` | Renders pages to PNG with pdftoppm, mutool or Ghostscript so the agent can look at them |
+Nothing is installed without your confirmation. The full package list is [`assets/requirements.txt`](skills/latex-ops/assets/requirements.txt); CI installs exactly that list on Linux and Windows and compiles every template and example.
 
 ## Evaluation
 
-Six realistic requests (a workbook from lesson notes, a proposal with no price yet, a broken `fontspec` build, a MiKTeX font error, lecture notes with a proof, an ABNT thesis skeleton), each run once by an agent with the skill and once without, graded on 50 checkable criteria:
+Four requests were run once by an agent with the skill and once without it, and graded on 33 checkable criteria: fixing a `fontspec` build broken by the wrong engine, a MiKTeX font error on Windows, lecture notes with a proof, and an ABNT thesis skeleton.
 
 | | With latex-ops | Without |
 | --- | --- | --- |
-| Criteria met | 50 / 50 (100%) | 47 / 50 (94%) |
-| Mean time per task | 84 s | 64 s |
-| Mean tokens per task | 65 k | 50 k |
+| Criteria met | 33 / 33 | 30 / 33 |
+| Mean time per task | 77 s | 50 s |
+| Mean tokens per task | 64 k | 49 k |
 
-Where the baseline fell short: it did not look at the rendered pages in three of the five document tasks, so layout problems would have reached the user unseen. Both versions compiled every document and invented no prices or answer keys; the base model is already good at LaTeX, and the skill mostly adds the verification loop, the venue and ABNT rules, and a consistent, restrained visual system (the baseline tends toward coloured banners and boxes). One run per configuration: treat the numbers as a first signal, not a benchmark.
+The base model is already good at LaTeX: both versions compiled all three document outputs and invented nothing. The difference was the verification loop. Without the skill, the agent did not look at the rendered pages in any of the three tasks that produced a document, so layout problems would have reached the user unseen. The skill costs about half a minute and 15 k tokens more per task. One run per configuration, so treat this as a first signal rather than a benchmark; the prompts are in [`evals/evals.json`](skills/latex-ops/evals/evals.json).
+
+## FAQ
+
+<details>
+<summary><strong>Which agents does it work in?</strong></summary>
+
+Any runtime that loads Agent Skills (a folder with a `SKILL.md`): Claude Code, Codex, and the agents the `skills` CLI supports. The scripts are plain Python, so they run the same way in each.
+</details>
+
+<details>
+<summary><strong>Will it use my journal's or university's template?</strong></summary>
+
+Yes, and that template wins. The skill asks for (or downloads from the official page) the author kit for the venue, year and stage, migrates the content into it, and reports each requirement as pass, fail or unverified. It never rewrites a class file from memory and never shrinks fonts or margins to meet a page limit.
+</details>
+
+<details>
+<summary><strong>Does it write the paper for me?</strong></summary>
+
+It writes and structures what you give it, and it can draft text you ask for, but it does not invent results, data, citations or claims. Where something is missing it leaves a visible `[CONTENT: ...]` marker so nothing fabricated slips into a submission.
+</details>
+
+<details>
+<summary><strong>Does it work on Overleaf?</strong></summary>
+
+The agent works on files on your computer. It can prepare a self-contained project to upload to Overleaf, or work on one you downloaded, respecting the compiler set in the Overleaf menu.
+</details>
+
+<details>
+<summary><strong>Does it support languages other than English?</strong></summary>
+
+Yes. Documents use `babel` for their language and hyphenation; the ABNT template is in Portuguese. The agent replies in your language.
+</details>
+
+<details>
+<summary><strong>Does it run code from my documents?</strong></summary>
+
+Not by default: builds run with shell escape off. Features that need it (`minted`, PythonTeX, TikZ externalisation) are enabled only when you ask, and the agent tells you that the document will run programs.
+</details>
 
 ## Development
 
-```console
+```bash
 python3 -m unittest discover -s tests       # script tests
 python3 tests/build_templates.py            # compile every template and example
 ```
 
-CI compiles every template and example on Linux and Windows with only the packages in `requirements.txt`.
+Issues and pull requests are welcome. A new template should compile with only the packages in `requirements.txt` (add any it needs) and come with an entry in `references/functional-templates.md`.
 
 ## License
 

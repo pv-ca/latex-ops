@@ -72,6 +72,11 @@ def run(cmd, cwd, timeout):
     try:
         proc = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True,
                               errors="replace", timeout=timeout)
+        if proc.returncode != 0:
+            # TeX's log omits driver and bibliography failures; retain their output too.
+            transcript = "\n".join(part for part in (proc.stdout, proc.stderr) if part)
+            print("command failed (exit %s): %s" % (proc.returncode, " ".join(cmd)))
+            print("\n".join(transcript.splitlines()[-40:]))
         return proc.returncode
     except subprocess.TimeoutExpired:
         print("timeout after %ss: %s" % (timeout, " ".join(cmd)))

@@ -30,6 +30,9 @@ jobs:
       - uses: TeX-Live/setup-texlive-action@v4
         with:
           packages: scheme-infraonly ${{ steps.pkgs.outputs.list }}
+      - name: Install PDF renderer
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: python skills/latex-ops/scripts/check_env.py
       - run: python tests/build_templates.py --gallery gallery
       - uses: actions/upload-artifact@v4

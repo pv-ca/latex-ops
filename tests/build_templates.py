@@ -2,7 +2,7 @@
 """Compile every bundled template and example; optionally render page 1 of each into a gallery folder.
 
 Usage: python3 tests/build_templates.py [--gallery docs/gallery] [--workdir DIR]
-Exit code 1 if any template fails.
+Exit code 1 if any document fails to compile or any requested preview is missing.
 """
 import argparse
 import shutil
@@ -44,12 +44,18 @@ def main(argv=None):
             failures.append(tex.name)
             for e in report["errors"][:3]:
                 print("     " + e)
+            if log and not report["errors"]:  # no TeX error: show the tail (latexmk, bibtex or a missing file)
+                for line in build._read(log).splitlines()[-15:]:
+                    print("     | " + line)
         elif args.gallery:
             out = Path(args.gallery)
             out.mkdir(parents=True, exist_ok=True)
-            preview.main([str(pdf), "--pages", "1", "--dpi", "60", "--outdir", str(out)])
+            rendered = preview.main([str(pdf), "--pages", "1", "--dpi", "60", "--outdir", str(out)])
             png = out / (pdf.stem + "-p1.png")
-            if png.exists():
+            if rendered != 0 or not png.is_file():
+                failures.append(tex.name)
+                print("FAIL preview %s/%s" % (kind, tex.name))
+            else:
                 png.replace(out / ("%s-%s.png" % (kind, pdf.stem)))
     print("%d documents, %d failed" % (len(templates()), len(failures)))
     return 1 if failures else 0
