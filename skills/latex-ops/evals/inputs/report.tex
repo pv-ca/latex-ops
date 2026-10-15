@@ -1,0 +1,26 @@
+% !TEX program = pdflatex
+\documentclass[11pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{booktabs}
+\title{Quarterly Report}
+\author{Operations}
+\begin{document}
+\maketitle
+\section{Summary}
+Shipments grew in the third quarter. See Table~\ref{tab:q3}.
+\begin{table}[ht]
+\centering
+\caption{Shipments per month}\label{tab:q3}
+\begin{tabular}{lr}
+\toprule
+Month & Shipments \\
+\midrule
+July & 1204 \\
+August & 1310 \\
+September & 1388 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{document}

@@ -83,6 +83,18 @@ Installing anything always waits for your confirmation. The full list of package
 | `build.py file.tex` | Compiles with latexmk (or the engine plus biber/bibtex), shell escape off, and prints errors with file and line, undefined references and citations, missing glyphs and overfull boxes |
 | `preview.py file.pdf --pages 1-3` | Renders pages to PNG with pdftoppm, mutool or Ghostscript so the agent can look at them |
 
+## Evaluation
+
+Six realistic requests (a workbook from lesson notes, a proposal with no price yet, a broken `fontspec` build, a MiKTeX font error, lecture notes with a proof, an ABNT thesis skeleton), each run once by an agent with the skill and once without, graded on 50 checkable criteria:
+
+| | With latex-ops | Without |
+| --- | --- | --- |
+| Criteria met | 50 / 50 (100%) | 47 / 50 (94%) |
+| Mean time per task | 84 s | 64 s |
+| Mean tokens per task | 65 k | 50 k |
+
+Where the baseline fell short: it did not look at the rendered pages in three of the five document tasks, so layout problems would have reached the user unseen. Both versions compiled every document and invented no prices or answer keys; the base model is already good at LaTeX, and the skill mostly adds the verification loop, the venue and ABNT rules, and a consistent, restrained visual system (the baseline tends toward coloured banners and boxes). One run per configuration: treat the numbers as a first signal, not a benchmark.
+
 ## Development
 
 ```console
