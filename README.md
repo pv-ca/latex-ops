@@ -279,7 +279,7 @@ The plugin manifests point to `skills/latex-ops`. The instructions have one sour
 
 ## Development
 
-The [roadmap](docs/ROADMAP.md) preserves the deferred 0.2.0–0.6.0 stages. The current release covers only the corrective 0.1.2 scope.
+The current release covers the corrective 0.1.2 scope.
 
 ```bash
 python3 -m unittest discover -s tests       # script tests

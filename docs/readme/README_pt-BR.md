@@ -279,7 +279,7 @@ Os manifestos de plugin apontam para `skills/latex-ops`. Todos os métodos de in
 
 ## Desenvolvimento
 
-O [roadmap](../ROADMAP.md) preserva as etapas 0.2.0–0.6.0 para depois. Esta versão cobre somente a etapa corretiva 0.1.2.
+Esta versão cobre a etapa corretiva 0.1.2.
 
 ```bash
 python3 -m unittest discover -s tests       # testes dos scripts
