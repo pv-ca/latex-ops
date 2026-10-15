@@ -28,7 +28,7 @@
 
 Você pede ao seu agente um artigo, um capítulo de tese, notas de aula ou uma lista de exercícios. Ele escreve um LaTeX que compila, diz que o PDF está pronto, e ao abrir você encontra uma tabela saindo da página, um título sozinho no pé da página, um gráfico com a legenda em cima dos dados ou uma citação inventada.
 
-O **latex-ops** é uma [Agent Skill](https://agentskills.io) que muda a forma como o agente trabalha com LaTeX. Ele escolhe uma estrutura de documento e um estilo visual adequados ao leitor, escreve o código com a matemática e a estatística feitas do jeito certo, compila, renderiza as páginas e olha cada uma, corrige o que encontra e diz exatamente o que conferiu. Ele nunca inventa uma citação, um número ou uma exigência que não recebeu.
+O **latex-ops** é uma [Agent Skill](https://agentskills.io) que muda a forma como o agente trabalha com LaTeX. Ele escolhe uma estrutura de documento e um estilo visual adequados ao leitor, escreve o código com a matemática e a estatística feitas do jeito certo, compila, renderiza e inspeciona páginas com cobertura declarada, corrige o que encontra e diz exatamente o que conferiu. Ele nunca inventa uma citação, um número ou uma exigência que não recebeu.
 
 O foco é o trabalho acadêmico (artigos, artigos de conferência, teses, trabalhos na ABNT, propostas, relatórios, notas de aula, listas de exercícios, pôsteres e apresentações), e ele também cobre os documentos profissionais do seu conjunto de templates. Funciona onde as Agent Skills funcionam, no Windows, no macOS e no Linux.
 
@@ -115,13 +115,13 @@ seu pedido ─▶ escolhe template + preset ─▶ escreve o código ─▶ comp
 
 - **Duas coordenadas para cada documento.** Um *template funcional* define o que o documento precisa fazer (um artigo de conferência, uma lista de exercícios, uma resposta aos revisores) e um *preset visual* define a aparência (Minimal Research, Tufte Editorial, Kao Textbook…). O kit oficial da revista ou da universidade sempre prevalece sobre os dois.
 - **Ciclo fechado.** O agente compila, lê o log, renderiza as páginas e procura os defeitos que o compilador não aponta: tabelas estourando a margem, títulos isolados, páginas quase vazias, legendas sobre os dados, caracteres faltando.
-- **Nada inventado.** O que falta fica marcado com `% [CONTENT: ...]` no lugar certo. Citações precisam ser de fontes conferidas. Números de tabelas e gráficos vêm dos seus dados ou de uma fórmula declarada. "Compilou", "conferi" e "acessível" só são ditos quando a verificação aconteceu de fato.
+- **Nada inventado.** O que falta recebe marcadores visíveis `[CONTENT: ...]` no rascunho e uma lista de pendências. Comentários no fonte são notas de trabalho e não aparecem no PDF. Citações precisam ser de fontes conferidas. Números de tabelas e gráficos vêm dos seus dados ou de uma fórmula declarada. "Compilou", "conferi" e "acessível" só são ditos quando a verificação aconteceu de fato.
 - **Matemática e estatística bem feitas.** Ambientes de equação, deduções alinhadas, sistema de teoremas, operadores declarados, `siunitx`, `pgfplots` lendo CSV, tabelas de regressão geradas pelo seu código de análise, resultados com tamanho de efeito e intervalo de confiança.
 - **Consertos sem efeito colateral.** Num build quebrado, ele encontra o arquivo principal, corrige o primeiro erro real com a menor mudança possível, nunca edita arquivos de classe oficiais e mostra o diff.
 
 ## Exemplos
 
-Todos foram feitos com a skill, compilados e conferidos página por página. Os fontes estão em [`examples/`](../../examples/).
+Estes exemplos foram feitos com a skill. O CI os recompila e renderiza a primeira página de cada um; essa verificação automática não inspeciona o layout. Os fontes estão em [`examples/`](../../examples/).
 
 | Lista de exercícios com gabarito no mesmo arquivo | Proposta de pesquisa com orçamento ainda não definido |
 | --- | --- |
@@ -171,8 +171,8 @@ São 32 arquivos de templates funcionais e 9 presets, cada um um `.tex` que comp
 | Script (Python 3.8+, só biblioteca padrão) | Faz |
 | --- | --- |
 | `check_env.py` | Detecta a distribuição, os motores, o latexmk, o renderizador de PDF e os pacotes que faltam; `--install` mostra o comando de instalação e `--install --yes` executa depois que você concorda |
-| `build.py arquivo.tex` | Compila com latexmk, ou com o motor mais biber/bibtex até as referências estabilizarem; shell escape desligado; mostra erros com arquivo e linha, referências indefinidas, caracteres faltando e caixas estouradas |
-| `preview.py arquivo.pdf --pages 1-3` | Converte páginas em PNG com pdftoppm, mutool ou Ghostscript para o agente poder olhar |
+| `build.py arquivo.tex` | Compila com latexmk, ou com o motor mais Biber/BibTeX e makeindex quando necessários; falhas de backend e builds não estabilizados reprovam; shell escape e carregamento de rc desligados por padrão; mostra erros com arquivo e linha, referências indefinidas, caracteres faltando e caixas estouradas |
+| `preview.py arquivo.pdf --pages 1-3` | Converte páginas novas em PNG com pdftoppm, mutool ou Ghostscript; `--timeout 60` limita cada página; o agente as inspeciona separadamente |
 
 ## Requisitos
 
@@ -192,7 +192,7 @@ Nada é instalado sem a sua confirmação. A lista completa de pacotes está em 
 
 ## Avaliação
 
-Quatro pedidos foram executados uma vez por um agente com a skill e uma vez sem ela, e avaliados em 33 critérios verificáveis: consertar um build com `fontspec` quebrado pelo motor errado, um erro de fonte do MiKTeX no Windows, notas de aula com uma prova e a estrutura de um TCC na ABNT.
+**Avaliação histórica da v0.1.0; não foi refeita para a v0.1.2.** Quatro pedidos foram executados uma vez por um agente com a skill e uma vez sem ela, e avaliados em 33 critérios verificáveis: consertar um build com `fontspec` quebrado pelo motor errado, um erro de fonte do MiKTeX no Windows, notas de aula com uma prova e a estrutura de um TCC na ABNT.
 
 | | Com latex-ops | Sem |
 | --- | --- | --- |
@@ -219,7 +219,7 @@ Sim, e esse template prevalece. A skill pede (ou baixa da página oficial) o kit
 <details>
 <summary><strong>Ela escreve o trabalho por mim?</strong></summary>
 
-Ela escreve e estrutura o que você fornece e pode redigir o texto que você pedir, mas não inventa resultados, dados, citações nem afirmações. Onde falta algo, deixa um marcador visível `[CONTENT: ...]` para nada fabricado escapar para uma submissão.
+Ela escreve e estrutura o que você fornece e pode redigir o texto que você pedir, mas não inventa resultados, dados, citações nem afirmações. O que falta permanece em marcadores visíveis `[CONTENT: ...]` no rascunho e na lista de pendências da entrega. Rascunhos são entregas válidas, identificadas como tal; marcadores pendentes impedem declarar o documento pronto para submissão.
 </details>
 
 <details>
@@ -237,7 +237,7 @@ Sim. Os documentos usam o `babel` para a língua e a hifenização; o template A
 <details>
 <summary><strong>Ela executa código dos meus documentos?</strong></summary>
 
-Não por padrão: os builds rodam com shell escape desligado. Recursos que precisam dele (`minted`, PythonTeX, externalização do TikZ) só são ativados quando você pede, e o agente avisa que o documento vai executar programas.
+O TeX interpreta o documento durante a compilação. O utilitário desativa shell escape e carregamento de rc do latexmk por padrão. `--shell-escape` permite programas externos pelo TeX; `--trust-project-config` permite, separadamente, carregar arquivos rc, que executam Perl mesmo com shell escape desligado. Use essas opções apenas para código revisado e coberto pela autorização da tarefa. Nenhuma delas oferece isolamento.
 </details>
 
 ## Compatibilidade e verificação
@@ -246,11 +246,12 @@ Não por padrão: os builds rodam com shell escape desligado. Recursos que preci
 | --- | --- |
 | Linux + TeX Live | O CI compila os 45 documentos (32 templates funcionais, 9 presets e 4 exemplos) e renderiza a primeira página de cada um |
 | Windows + TeX Live | A mesma bateria de compilação e renderização roda no CI |
+| Bibliografia e índice | Testes com TeX real nas duas plataformas cobrem BibTeX, Biber, índice no fallback, saída separada, caminhos com pontos/espaços e a opção de confiança para rc |
 | macOS | Os scripts Python e o fluxo TeX foram escritos para funcionar nele; não há job de CI para macOS |
 | MiKTeX | Há detecção do ambiente e orientação de instalação; o CI usa TeX Live |
 | Empacotamento do plugin | Os metadados e caminhos das skills têm testes estruturais; os manifestos de plugin e marketplace do Claude passam na validação nativa estrita |
 
-Um build aprovado verifica compilação e geração das imagens. A diagramação ainda exige inspeção visual, relatada à parte pelo agente. Os fluxos de instalação do plugin ainda não foram exercitados de ponta a ponta em perfis novos dos agentes.
+Compilação, geração de prévias e inspeção visual são verificações separadas. O agente inspeciona todas as páginas de documentos curtos; nos longos, pode amostrar conteúdo complexo e transições de estrutura. O relatório lista as páginas conferidas, o total de páginas e a cobertura pendente. A existência de PNGs não comprova inspeção. Os fluxos de instalação do plugin ainda não foram exercitados de ponta a ponta em perfis novos dos agentes.
 
 ## Solução de problemas
 

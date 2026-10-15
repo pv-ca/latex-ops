@@ -65,7 +65,7 @@ def latexmk_works(tools):
     """latexmk is a Perl script; under MiKTeX it fails without a Perl installation."""
     if not tools.get("latexmk"):
         return False
-    code, _ = run([tools["latexmk"], "-v"])
+    code, _ = run([tools["latexmk"], "-norc", "-v"])
     return code == 0
 
 

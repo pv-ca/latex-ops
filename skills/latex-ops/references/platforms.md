@@ -10,7 +10,7 @@ Read when `scripts/check_env.py` reports a problem, when a build fails for a rea
 | TinyTeX | `tlmgr install <pkg>` | Small TeX Live; installs per user, no administrator rights. Best choice when nothing is installed |
 | TeX Live from a Linux distribution (apt, dnf, pacman, zypper) | the system package manager | `tlmgr` is absent or disabled; use the system command `check_env.py --install` prints. Fedora maps files directly: `dnf install 'tex(scrartcl.cls)'` |
 | MiKTeX (mostly Windows) | `miktex packages install <pkg>` or the MiKTeX Console | Installs missing `.sty`/`.cls` on the fly when that option is on, but **not** fonts requested by name through `fontspec`: install `inter`, `libertinus-fonts` and `lm` before using the templates. `latexmk` needs a separate Perl (Strawberry Perl) |
-| Overleaf | the project menu | The compiler (pdfLaTeX, XeLaTeX, LuaLaTeX) and TeX Live year are chosen in the project menu; a `latexmkrc` in the project is honoured. Nothing can be installed |
+| Overleaf | the project menu | The compiler (pdfLaTeX, XeLaTeX, LuaLaTeX) and TeX Live year are chosen in project settings; a `latexmkrc` in the project is honoured. Nothing can be installed |
 
 Installing software changes the user's machine: show the command from `check_env.py --install` and run it with `--yes` only after the user agrees.
 
@@ -27,7 +27,7 @@ Installing software changes the user's machine: show the command from `check_env
 - LuaLaTeX: default for new documents (Unicode, OpenType fonts, tagged PDF). Slower than pdfLaTeX.
 - XeLaTeX: Unicode and system fonts; use when a class or venue asks for it.
 - pdfLaTeX: required by many journal and conference classes; no `fontspec` or `unicode-math`.
-- A magic comment on the first lines selects the engine for `build.py`, latexmk-aware editors and Overleaf alike: `% !TEX program = xelatex`.
+- A magic comment on the first lines selects the engine for `build.py`: `% !TEX program = xelatex`. Editor support varies. On Overleaf, select the compiler explicitly in project settings; the comment is only a reminder. See [Overleaf compiler settings](https://docs.overleaf.com/getting-started/recompiling-your-project/selecting-a-tex-live-version-and-latex-compiler).
 
 ## Fonts
 

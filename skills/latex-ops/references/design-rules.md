@@ -108,7 +108,7 @@ The venue decides first. A journal, conference, publisher or university class ov
 
 ### Citations and bibliography
 
-- Every `\cite` must point to a real, checked entry. Do not create bibliography entries from memory; when a source cannot be verified, leave `% [CITATION NEEDED: claim]` and say so.
+- Every `\cite` must point to a real, checked entry. Do not create bibliography entries from memory; when a source cannot be verified, use a visible draft marker such as `\textbf{[CITATION NEEDED: source for this claim]}` (escaping special characters), retain any working comments separately, and include it in the delivery's pending-content list. A draft may keep these markers; a submission-ready claim requires resolving them with checked sources.
 - Keep citation keys, and keep the difference between textual and parenthetical citation (`\citet` versus `\citep`, `\textcite` versus `\parencite`); do not replace every citation with one command.
 - Use the bibliography style and backend the venue or project already uses (BibTeX with a `.bst`, or biblatex with biber); do not switch backends to make a warning disappear.
 - Zero undefined citations and references is part of done.

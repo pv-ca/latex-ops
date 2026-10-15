@@ -1,9 +1,12 @@
-# TeX packages the bundled templates need, one per line: <TeX Live package name> <probe>.
+# TeX packages the bundled templates and real-build regression tests need, one per line: <TeX Live package name> <probe>.
 # The probe is a file that kpsewhich finds when the package is installed, or bin:<program>
 # for a program on PATH. MiKTeX uses the same names for these packages.
 # Generated from the files the templates and examples actually read (latexmk .fls). CI installs only
 # these packages and compiles every template and example, so a missing entry fails CI.
 latexmk bin:latexmk
+bibtex bin:bibtex
+biber bin:biber
+biblatex biblatex.sty
 makeindex bin:makeindex
 texlogsieve bin:texlogsieve
 luatex bin:luatex

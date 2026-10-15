@@ -34,6 +34,10 @@ jobs:
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: python skills/latex-ops/scripts/check_env.py
+      - name: Real bibliography, index and trust regressions
+        env:
+          LATEX_OPS_INTEGRATION: "1"
+        run: python -m unittest discover -s tests -p test_build_integration.py -v
       - run: python tests/build_templates.py --gallery gallery
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest'

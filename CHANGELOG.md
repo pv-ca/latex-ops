@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.2 — 2026-10-15
+
+- Propagate missing or failing Biber, BibTeX and makeindex backends in fallback builds. Preserve full dotted job names and resolve bibliographies with separate source/output directories.
+- Process nonempty indexes in the fallback and fail when references have not stabilized after five TeX passes.
+- Disable latexmk rc files for diagnostics and default builds. Add explicit `--trust-project-config` for reviewed configuration; rc files execute Perl independently of TeX shell escape.
+- Force latexmk to rebuild and require a fresh PDF. Stage page previews so existing PNGs cannot mask rendering failure; add per-page timeouts and renderer diagnostics.
+- Normalize preview operation failure to exit 1 (formerly 3 when no renderer was found); invalid arguments remain exit 2.
+- Separate working comments, visible draft markers and delivery pending-content lists. Require visual page coverage and distinguish valid drafts from submission-ready documents.
+- Correct Overleaf compiler guidance, label evaluations as historical v0.1.0 results, and synchronize skill and plugin metadata.
+- Add deterministic regression tests and opt-in real TeX tests for bibliography, indexing, names/paths and configuration trust; run the latter on Linux and Windows CI.
+
 ## 0.1.1 — 2026-10-15
 
 - Add public plugin and marketplace manifests for Claude Code and Codex, using the same skill directory as the standalone installation.

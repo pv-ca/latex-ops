@@ -1,5 +1,6 @@
 """Check that every plugin entrypoint resolves the same shipped skill."""
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -20,6 +21,12 @@ class Packaging(unittest.TestCase):
             for field in ("name", "version", "license", "repository"):
                 self.assertEqual(manifest[field], portable[field], (name, field))
         self.assertNotIn("skills", portable)
+
+    def test_skill_metadata_matches_plugin_version(self):
+        text = (ROOT / "skills/latex-ops/SKILL.md").read_text(encoding="utf-8")
+        version = re.search(r'^  version: "([^"\n]+)"$', text, re.M)
+        self.assertIsNotNone(version)
+        self.assertEqual(version.group(1), read("plugin.json")["version"])
 
     def test_each_host_discovers_only_the_shipped_skill(self):
         expected = ROOT / "skills" / "latex-ops" / "SKILL.md"

@@ -52,12 +52,12 @@ project/
 
 ## Overleaf
 
-- A project downloaded from Overleaf builds locally with `latexmk`; check `latexmkrc` and the main document set in the Overleaf menu.
-- On Overleaf the compiler (pdfLaTeX, XeLaTeX, LuaLaTeX) and the TeX Live year are chosen in the project menu; a `% !TEX program = lualatex` magic comment is a reminder, not a setting there.
+- A project downloaded from Overleaf builds locally with `latexmk`; read `latexmkrc` and check the main document in Overleaf project settings. Local `build.py` ignores rc files unless `--trust-project-config` is explicitly authorized; that configuration executes Perl, independently of shell escape.
+- On Overleaf the compiler (pdfLaTeX, XeLaTeX, LuaLaTeX) and the TeX Live year are chosen in project settings; a `% !TEX program = lualatex` magic comment is a reminder, not a setting there.
 - Fonts: Overleaf ships the TeX Live fonts used by the bundled templates; system fonts are unavailable unless uploaded to the project.
-- When preparing a project for Overleaf, keep it self-contained (all images, `.bib`, class and style files in the project) and avoid `--shell-escape` features unless the user enables them.
+- When preparing a project for Overleaf, keep it self-contained (all images, `.bib`, class and style files in the project) and check whether required external commands are supported by that environment before using them. A local build does not establish that the project was tested on Overleaf.
 
 ## Editors and build files
 
-- `latexmkrc` in the project root pins the engine and options for every collaborator: `$pdf_mode = 4;` (LuaLaTeX), `$bibtex_use = 2;`.
+- `latexmkrc` in the project root can share engine and options with collaborators who explicitly trust and load it: `$pdf_mode = 4;` (LuaLaTeX), `$bibtex_use = 2;`.
 - VS Code (LaTeX Workshop), TeXstudio and TeXworks read the `% !TEX program` magic comment.
