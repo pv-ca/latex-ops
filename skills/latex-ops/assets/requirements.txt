@@ -4,6 +4,7 @@
 # Generated from the files the templates and examples actually read (latexmk .fls). CI installs only
 # these packages and compiles every template and example, so a missing entry fails CI.
 latexmk bin:latexmk
+makeindex bin:makeindex
 texlogsieve bin:texlogsieve
 luatex bin:luatex
 luahbtex bin:luahbtex

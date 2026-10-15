@@ -9,7 +9,6 @@
 \usepackage{microtype}
 \usepackage[a4paper,margin=25mm]{geometry}
 \usepackage{xcolor}
-\usepackage{thmtools}
 \usepackage[hidelinks]{hyperref}
 \usepackage[capitalise,noabbrev]{cleveref}
 
@@ -19,16 +18,19 @@
 \setkomafont{disposition}{\sffamily\bfseries}
 \definecolor{Accent}{HTML}{315B6B}
 
-\declaretheoremstyle[headfont=\sffamily\bfseries,bodyfont=\itshape,spaceabove=.8em,spacebelow=.8em]{thm}
-\declaretheoremstyle[headfont=\sffamily\bfseries,bodyfont=\normalfont,spaceabove=.8em,spacebelow=.8em]{defn}
-\declaretheorem[style=thm,numberwithin=section]{theorem}
-\declaretheorem[style=thm,sibling=theorem]{lemma}
-\declaretheorem[style=thm,sibling=theorem]{proposition}
-\declaretheorem[style=thm,sibling=theorem]{corollary}
-\declaretheorem[style=defn,sibling=theorem]{definition}
-\declaretheorem[style=defn,sibling=theorem]{example}
-\declaretheorem[style=defn,numbered=no]{remark}
-\declaretheorem[style=defn,numberwithin=section,name=Exercise]{exercise}
+% Use amsthm directly: thmtools sibling counters conflict with the June 2026 kernel.
+\newtheoremstyle{thm}{.8em}{.8em}{\itshape}{}{\sffamily\bfseries}{.}{.5em}{}
+\newtheoremstyle{defn}{.8em}{.8em}{\normalfont}{}{\sffamily\bfseries}{.}{.5em}{}
+\theoremstyle{thm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{defn}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}[section]
 
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclareMathOperator{\tr}{tr}

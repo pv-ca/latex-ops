@@ -4,7 +4,7 @@
 
 # latex-ops
 
-### LaTeX acadêmico com cara de publicado, não de exportado.
+### LaTeX acadêmico, compilado e conferido.
 
 [![Agent Skills](https://img.shields.io/badge/Agent_Skills-SKILL.md-5c4ee5?style=flat-square)](https://agentskills.io)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-skill-d97757?style=flat-square)](#instalação)
@@ -34,13 +34,52 @@ O foco é o trabalho acadêmico (artigos, artigos de conferência, teses, trabal
 
 ## Instalação
 
-Com a CLI [`skills`](https://www.npmjs.com/package/skills), que instala no Claude Code, no Codex e nos outros agentes que ela suporta:
+Escolha um método por agente. Instalar o plugin e uma cópia avulsa pode carregar a skill duas vezes. Os comandos abaixo instalam a skill e seus scripts; TeX e Python são requisitos separados.
+
+<details>
+<summary><strong>Claude Code: plugin</strong></summary>
 
 ```bash
-npx skills add https://github.com/pv-ca/latex-ops --skill latex-ops
+claude plugin marketplace add pv-ca/latex-ops
+claude plugin install latex-ops@pvca-latex
 ```
 
-Ou copiando a pasta à mão:
+O repositório fornece seu próprio marketplace. Ele pode ser usado sem constar no diretório oficial de plugins.
+
+</details>
+
+<details>
+<summary><strong>Codex: plugin</strong></summary>
+
+```bash
+codex plugin marketplace add pv-ca/latex-ops
+codex plugin add latex-ops@pvca-latex
+```
+
+Requer uma versão do Codex com os comandos `plugin`. O manifesto do Codex aponta para a mesma skill usada pelo Claude Code.
+
+</details>
+
+<details open>
+<summary><strong>Outros agentes ou skill avulsa</strong></summary>
+
+Com Node.js e npm disponíveis, execute:
+
+```bash
+npx skills add pv-ca/latex-ops --skill latex-ops
+```
+
+A [CLI skills](https://github.com/vercel-labs/skills) permite escolher o agente e o escopo da instalação. Você também pode indicar o agente:
+
+```bash
+npx skills add pv-ca/latex-ops --skill latex-ops --agent codex
+npx skills add pv-ca/latex-ops --skill latex-ops --agent claude-code
+```
+
+</details>
+
+<details>
+<summary><strong>Cópia manual</strong></summary>
 
 ```bash
 git clone https://github.com/pv-ca/latex-ops
@@ -48,7 +87,23 @@ cp -r latex-ops/skills/latex-ops ~/.claude/skills/      # Claude Code
 cp -r latex-ops/skills/latex-ops ~/.agents/skills/      # Codex
 ```
 
-No Windows, copie `skills\latex-ops` para `%USERPROFILE%\.claude\skills\` ou `%USERPROFILE%\.agents\skills\`. Abra uma sessão nova depois. Você também precisa de uma distribuição TeX: veja [Requisitos](#requisitos); na primeira vez a skill diz o que está faltando.
+No Windows, copie `skills\latex-ops` para `%USERPROFILE%\.claude\skills\` ou `%USERPROFILE%\.agents\skills\`. Mantenha scripts, referências e assets junto do `SKILL.md`.
+
+</details>
+
+Abra uma sessão nova depois da instalação. Se você já mantém uma árvore compartilhada de skills, use o instalador dela para evitar uma segunda cópia.
+
+### Primeiro uso
+
+Peça ao agente:
+
+> Use latex-ops para conferir meu ambiente LaTeX. Informe o que falta antes de instalar qualquer coisa. Depois compile o documento anexado, examine o PDF e diga o que conferiu.
+
+Forneça os fontes, dados, imagens e o kit oficial de autor quando houver. Para um documento novo, diga quem vai ler e qual é a entrega: artigo, tese, lista de exercícios ou slides. O agente confere o ambiente, escolhe template e preset quando cabe, e entrega o fonte LaTeX, o PDF se a compilação funcionar e um relato da verificação. O template da revista ou da universidade determina a formatação.
+
+### Atualizações
+
+Na instalação pela CLI, use `npx skills update latex-ops`. Na cópia manual, atualize este repositório e substitua a pasta copiada depois de preservar suas alterações locais. Para plugins, use os controles de atualização do agente; a frequência depende do programa e das configurações dele. As mudanças constam nas [releases](https://github.com/pv-ca/latex-ops/releases).
 
 ## O que faz
 
@@ -103,7 +158,7 @@ Minha tese parou de compilar depois que coloquei o fontspec. Conserta sem mexer 
 | Profissional | Currículo · Carta formal · Resumo executivo · Memorando · Proposta · Fatura e orçamento · Contrato · Ata de reunião · Manual técnico · POP · Referência de uma página · Formulário · Revista · Folheto · Portfólio |
 | Presets visuais | Minimal Research · Classic Editorial · Tufte Editorial · Kao Textbook · Swiss Minimal · Modern Report · Legal Minimal · Magazine Editorial · Minimal Beamer |
 
-São 31 templates de documento e 9 presets, cada um um `.tex` que compila e serve de referência: o agente adapta, não copia.
+São 32 arquivos de templates funcionais e 9 presets, cada um um `.tex` que compila e serve de referência para o seu documento.
 
 | Referência que o agente lê quando precisa | Cobre |
 | --- | --- |
@@ -145,7 +200,7 @@ Quatro pedidos foram executados uma vez por um agente com a skill e uma vez sem 
 | Tempo médio por tarefa | 77 s | 50 s |
 | Tokens médios por tarefa | 64 mil | 49 mil |
 
-O modelo base já é bom em LaTeX: as duas versões compilaram os três documentos produzidos e não inventaram nada. A diferença foi o ciclo de verificação. Sem a skill, o agente não olhou as páginas renderizadas em nenhuma das três tarefas que produziram documento, então problemas de layout chegariam ao usuário sem ninguém ver. A skill custa cerca de meio minuto e 15 mil tokens a mais por tarefa. Foi uma rodada por configuração, então trate como um primeiro sinal, não como benchmark; os pedidos estão em [`evals/evals.json`](../../skills/latex-ops/evals/evals.json).
+O modelo base já é bom em LaTeX: as duas versões compilaram os três documentos produzidos e não inventaram nada. A diferença foi o ciclo de verificação. Sem a skill, o agente não olhou as páginas renderizadas em nenhuma das três tarefas que produziram documento, então problemas de layout chegariam ao usuário sem ninguém ver. A skill custa cerca de meio minuto e 15 mil tokens a mais por tarefa. Foi uma rodada por configuração, então trate como um primeiro sinal, com evidência limitada; os pedidos estão em [`evals/evals.json`](../../skills/latex-ops/evals/evals.json).
 
 ## Perguntas frequentes
 
@@ -184,6 +239,43 @@ Sim. Os documentos usam o `babel` para a língua e a hifenização; o template A
 
 Não por padrão: os builds rodam com shell escape desligado. Recursos que precisam dele (`minted`, PythonTeX, externalização do TikZ) só são ativados quando você pede, e o agente avisa que o documento vai executar programas.
 </details>
+
+## Compatibilidade e verificação
+
+| Ambiente | O que é verificado |
+| --- | --- |
+| Linux + TeX Live | O CI compila os 45 documentos (32 templates funcionais, 9 presets e 4 exemplos) e renderiza a primeira página de cada um |
+| Windows + TeX Live | A mesma bateria de compilação e renderização roda no CI |
+| macOS | Os scripts Python e o fluxo TeX foram escritos para funcionar nele; não há job de CI para macOS |
+| MiKTeX | Há detecção do ambiente e orientação de instalação; o CI usa TeX Live |
+| Empacotamento do plugin | Os metadados e caminhos das skills têm testes estruturais; os manifestos de plugin e marketplace do Claude passam na validação nativa estrita |
+
+Um build aprovado verifica compilação e geração das imagens. A diagramação ainda exige inspeção visual, relatada à parte pelo agente. Os fluxos de instalação do plugin ainda não foram exercitados de ponta a ponta em perfis novos dos agentes.
+
+## Solução de problemas
+
+| Sintoma | Próximo passo |
+| --- | --- |
+| O agente não encontra a skill | Abra uma sessão nova e confira o agente e o escopo escolhidos na instalação |
+| `fontspec` falha no pdfLaTeX | Use LuaLaTeX ou XeLaTeX, salvo se a classe obrigatória exigir outra configuração de fontes |
+| Falta uma fonte ou pacote | Rode `check_env.py` e revise o comando proposto antes de instalar |
+| Há um PDF, mas o build falhou | Leia também a saída do programa: o latexmk pode falhar no índice ou na bibliografia depois que o TeX gera o PDF |
+| Não foi possível renderizar o PDF | Instale um renderizador compatível à parte ou examine o PDF diretamente e informe essa limitação |
+
+## Estrutura do repositório
+
+```text
+skills/latex-ops/
+  SKILL.md           Roteamento dos pedidos e fluxo de compilação e inspeção
+  references/        Design, matemática, estatística e detalhes por plataforma
+  scripts/           Verificação do ambiente, compilação e prévia
+  assets/            Templates e dependências TeX declaradas
+  evals/             Pedidos das avaliações publicadas
+examples/            Documentos de exemplo completos
+tests/               Verificações dos scripts, pacotes e compilação/renderização
+```
+
+Os manifestos de plugin apontam para `skills/latex-ops`. Todos os métodos de instalação usam a mesma fonte de instruções.
 
 ## Desenvolvimento
 

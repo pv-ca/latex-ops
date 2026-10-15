@@ -1,0 +1,16 @@
+{
+  "name": "pvca-latex",
+  "owner": {
+    "name": "pv-ca",
+    "url": "https://github.com/pv-ca"
+  },
+  "plugins": [
+    {
+      "name": "latex-ops",
+      "source": "./",
+      "description": "Create, repair and compile academic LaTeX, then inspect the PDF. Includes templates, mathematics, statistics and ABNT guidance.",
+      "category": "productivity"
+    }
+  ],
+  "description": "Academic LaTeX tools and skills maintained by pv-ca."
+}

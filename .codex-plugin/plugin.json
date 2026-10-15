@@ -1,0 +1,34 @@
+{
+  "name": "latex-ops",
+  "version": "0.1.1",
+  "description": "Create, repair and compile academic LaTeX, then inspect the PDF. Includes templates, mathematics, statistics and ABNT guidance.",
+  "author": {
+    "name": "pv-ca",
+    "url": "https://github.com/pv-ca"
+  },
+  "homepage": "https://github.com/pv-ca/latex-ops",
+  "repository": "https://github.com/pv-ca/latex-ops",
+  "license": "MIT",
+  "keywords": [
+    "latex",
+    "academic-writing",
+    "agent-skills",
+    "abnt",
+    "typesetting"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "LaTeX Ops",
+    "shortDescription": "Academic LaTeX with PDF checks",
+    "developerName": "pv-ca",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Format this paper using the supplied venue template.",
+      "Fix my LaTeX build and inspect the resulting PDF."
+    ]
+  }
+}
