@@ -1,8 +1,10 @@
 <div align="center">
 
-[English](../../README.md) · **Português (Brasil)**
-
-# latex-ops
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../branding/latex-ops-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="../branding/latex-ops-light.png">
+  <img src="../branding/latex-ops-light.png" alt="latex-ops: ícone de documento com símbolo de integral e nome do projeto" width="320">
+</picture>
 
 ### LaTeX acadêmico, compilado e conferido.
 
@@ -13,6 +15,8 @@
 ![Windows · macOS · Linux](https://img.shields.io/badge/Windows_·_macOS_·_Linux-compatível-2f6f8f?style=flat-square)
 [![ABNT](https://img.shields.io/badge/ABNT-abnTeX2-009c3b?style=flat-square)](#o-que-vem-incluído)
 [![Licença MIT](https://img.shields.io/badge/licença-MIT-f4c430?style=flat-square)](../../LICENSE)
+
+[English](../../README.md) · **Português (Brasil)**
 
 [Instalação](#instalação) · [O que faz](#o-que-faz) · [Exemplos](#exemplos) · [O que vem incluído](#o-que-vem-incluído) · [Requisitos](#requisitos) · [Avaliação](#avaliação) · [Perguntas frequentes](#perguntas-frequentes)
 
@@ -280,8 +284,11 @@ Os manifestos de plugin apontam para `skills/latex-ops`. Todos os métodos de in
 
 ## Desenvolvimento
 
+O [roadmap](../ROADMAP.md) preserva as etapas 0.2.0–0.6.0 para depois. Esta versão cobre somente a etapa corretiva 0.1.2.
+
 ```bash
 python3 -m unittest discover -s tests       # testes dos scripts
+LATEX_OPS_INTEGRATION=1 python3 -m unittest discover -s tests  # TeX real
 python3 tests/build_templates.py            # compila todos os templates e exemplos
 ```
 

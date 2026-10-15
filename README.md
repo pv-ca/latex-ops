@@ -1,8 +1,10 @@
 <div align="center">
 
-**English** · [Português (Brasil)](docs/readme/README_pt-BR.md)
-
-# latex-ops
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/branding/latex-ops-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/branding/latex-ops-light.png">
+  <img src="docs/branding/latex-ops-light.png" alt="latex-ops: document icon with an integral symbol and the project wordmark" width="320">
+</picture>
 
 ### Academic LaTeX, compiled and checked.
 
@@ -13,6 +15,8 @@
 ![Windows · macOS · Linux](https://img.shields.io/badge/Windows_·_macOS_·_Linux-supported-2f6f8f?style=flat-square)
 [![ABNT](https://img.shields.io/badge/ABNT-abnTeX2-009c3b?style=flat-square)](#what-is-inside)
 [![MIT license](https://img.shields.io/badge/license-MIT-f4c430?style=flat-square)](LICENSE)
+
+**English** · [Português (Brasil)](docs/readme/README_pt-BR.md)
 
 [Install](#install) · [What it does](#what-it-does) · [Examples](#examples) · [What is inside](#what-is-inside) · [Requirements](#requirements) · [Evaluation](#evaluation) · [FAQ](#faq)
 
@@ -280,8 +284,11 @@ The plugin manifests point to `skills/latex-ops`. The instructions have one sour
 
 ## Development
 
+The [roadmap](docs/ROADMAP.md) preserves the deferred 0.2.0–0.6.0 stages. The current release covers only the corrective 0.1.2 scope.
+
 ```bash
 python3 -m unittest discover -s tests       # script tests
+LATEX_OPS_INTEGRATION=1 python3 -m unittest discover -s tests  # real TeX
 python3 tests/build_templates.py            # compile every template and example
 ```
 
