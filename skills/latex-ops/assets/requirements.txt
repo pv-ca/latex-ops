@@ -5,7 +5,10 @@
 # these packages and compiles every template and example, so a missing entry fails CI.
 latexmk bin:latexmk
 texlogsieve bin:texlogsieve
-luatex bin:lualatex
+luatex bin:luatex
+luahbtex bin:luahbtex
+latex-bin bin:lualatex
+pdftex bin:pdftex
 inter Inter-Regular.otf
 libertinus-fonts LibertinusSerif-Regular.otf
 lm lmroman10-regular.otf

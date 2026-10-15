@@ -14,17 +14,9 @@ Do not force every possible section into a document. Use only structures support
 
 ## Education
 
-### Workbook / Worksheet
-Purpose: material learners actively complete, write on, review, and reuse.
-Typical structure: concise context/model -> example -> controlled practice -> guided practice -> production/review when justified.
-Core components: Exercise, Example, Remember, Language Note, Word Bank, Speaking, Writing, Challenge, Review, Answer Area.
-Defaults: sober editorial language suited to the learners' age; sufficient handwriting space; predictable numbering; avoid revealing answers through layout.
-Default visual preset: Swiss Minimal. Long/course-book-like material: Kao Textbook.
-Reference: `assets/templates/functional/01_workbook.tex`.
-
 ### Assessment Report
 Purpose: communicate evidence, performance, corrections, interpretation, priorities, and next steps.
-Keep observed evidence, interpretation, and recommendation distinct. Never invent scores, CEFR levels, strengths, weaknesses, diagnoses, or learner quotes.
+Keep observed evidence, interpretation, and recommendation distinct. Never invent scores, grades, levels, strengths, weaknesses, diagnoses, or student quotes.
 Default visual preset: Modern Report; quieter alternative: Swiss Minimal.
 Reference: `02_assessment_report.tex`.
 
@@ -239,7 +231,7 @@ Reference: `21_one_page_reference.tex`.
 
 ## Default routing summary
 
-- teaching exercise -> Workbook + Swiss Minimal
+- exercise sheet or homework -> Problem Set + Swiss Minimal
 - student diagnosis -> Assessment Report + Modern Report
 - curriculum -> Course Plan + Swiss Minimal
 - long guide -> Book/Guide + Classic Editorial or Kao Textbook

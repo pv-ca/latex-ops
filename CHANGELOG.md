@@ -2,7 +2,7 @@
 
 ## 0.1.0 — unreleased
 
-- Design system: 32 functional templates (education, academic, professional, legal, editorial, technical) and 9 visual presets, each a compilable `.tex` reference.
+- Design system: 31 functional templates (academic, teaching, professional, legal, editorial, technical) and 9 visual presets, each a compilable `.tex` reference.
 - Academic templates: Research Article, Conference Paper, Lecture Notes, Problem Set, Lab Report, Literature Review, Research Proposal, Statistical Report, ABNT academic work (abnTeX2), Response to Reviewers.
 - References for mathematics, statistics and integrations (Python, R, Julia, Quarto, Pandoc, TikZ, Overleaf).
 - Four filled examples in `examples/` with rendered pages in `docs/showcase/`.

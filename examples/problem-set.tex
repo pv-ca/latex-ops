@@ -1,0 +1,90 @@
+% latex-ops example: Problem Set + Swiss Minimal, solutions version.
+% Prompt: "Problem set on eigenvalues for a first-year linear algebra course, 4 problems, with
+% solutions in a separate version from the same source."
+% Every solution below was checked by hand and numerically (characteristic polynomials and eigenvectors).
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{amsmath,mathtools}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\IfFontExistsTF{Inter}{\setsansfont{Inter}}{\setsansfont{Latin Modern Sans}}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\definecolor{Accent}{HTML}{315B6B}
+\definecolor{Muted}{HTML}{6B6B6B}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.45em}
+\setlist{parsep=0pt,itemsep=.3em}
+\widowpenalty=10000 \clubpenalty=10000
+\pagestyle{plain}
+
+\newif\ifsolutions \solutionstrue % \solutionsfalse prints answer space instead
+\newcounter{problem}
+\newenvironment{problem}[1]
+  {\refstepcounter{problem}\par\bigskip\noindent\begin{minipage}{\linewidth}\setlength{\parskip}{.45em}%
+   {\sffamily\bfseries Problem \theproblem}\hfill{\sffamily\small\color{Muted}#1 points}\par\smallskip}
+  {\end{minipage}\par}
+\newcommand{\answerspace}[1]{\ifsolutions\else\par\vspace{#1}\fi}
+\newenvironment{solution}
+  {\ifsolutions\par\medskip\noindent{\sffamily\bfseries\color{Accent}Solution.}\ \else\setbox0\vbox\bgroup\fi}
+  {\ifsolutions\par\else\egroup\fi}
+
+\begin{document}
+
+{\sffamily\small\color{Muted}LINEAR ALGEBRA I \textperiodcentered\ WEEK 9\par}
+{\sffamily\LARGE\bfseries Problem Set 5: Eigenvalues\ifsolutions{} --- Solutions\fi\par}
+{\sffamily\color{Muted}Due Friday \textperiodcentered\ 20 points\par}
+
+\medskip
+\textbf{Instructions.} Show every step. A correct answer without justification earns no credit.
+
+\begin{problem}{5}
+Find the eigenvalues and an eigenvector for each eigenvalue of
+$A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$.
+\answerspace{5cm}
+\begin{solution}
+$\det(A - \lambda I) = (2-\lambda)^2 - 1 = (\lambda - 1)(\lambda - 3)$, so $\lambda_1 = 1$ and
+$\lambda_2 = 3$. For $\lambda_1 = 1$, $(A - I)v = 0$ gives $v_1 = (1, -1)^\top$; for
+$\lambda_2 = 3$, $(A - 3I)v = 0$ gives $v_2 = (1, 1)^\top$.
+\end{solution}
+\end{problem}
+
+\begin{problem}{5}
+Show that if $\lambda$ is an eigenvalue of an invertible matrix $B$, then $\lambda \neq 0$ and
+$1/\lambda$ is an eigenvalue of $B^{-1}$.
+\answerspace{5cm}
+\begin{solution}
+If $\lambda = 0$ then $Bv = 0$ for some $v \neq 0$, contradicting invertibility. From $Bv = \lambda v$,
+multiply by $B^{-1}$: $v = \lambda B^{-1} v$, so $B^{-1} v = \tfrac{1}{\lambda} v$ with the same $v \neq 0$.
+\end{solution}
+\end{problem}
+
+\begin{problem}{5}
+Let $C = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$. Show that $C$ has no real eigenvalues and
+find its complex eigenvalues.
+\answerspace{4cm}
+\begin{solution}
+$\det(C - \lambda I) = \lambda^2 + 1$, which has no real root. Over $\mathbb{C}$ the eigenvalues
+are $\lambda = \pm i$. Geometrically, $C$ rotates the plane by $90^\circ$, so no real direction is preserved.
+\end{solution}
+\end{problem}
+
+\begin{problem}{5}
+The trace of a $2 \times 2$ matrix $M$ is $5$ and its determinant is $6$. Find the eigenvalues of $M$.
+\answerspace{4cm}
+\begin{solution}
+The characteristic polynomial is $\lambda^2 - (\operatorname{tr} M)\lambda + \det M = \lambda^2 - 5\lambda + 6
+= (\lambda - 2)(\lambda - 3)$, so the eigenvalues are $2$ and $3$.
+\end{solution}
+\end{problem}
+
+\vfill
+{\small\color{Muted}Illustrative example generated with latex-ops.\par}
+\end{document}

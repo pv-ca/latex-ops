@@ -19,7 +19,7 @@ When a preset is selected, consult only its matching `.tex` reference. Read a se
 
 ## Educational material
 
-For teaching material aimed at teenagers and adults, default to mature, sober editorial design: clear progression, readable instructions, sufficient answer space, controlled density, restrained color, functional diagrams/tables, and predictable components. Avoid childish worksheet aesthetics unless the audience calls for them. Never invent proficiency levels (such as CEFR), grades or answer keys.
+For course material (lecture notes, problem sets, course plans), default to sober editorial design: clear progression, readable instructions, sufficient answer space, controlled density, restrained color, functional diagrams/tables, and predictable components. Never invent grades, levels or answer keys.
 
 ## Visual presets
 
