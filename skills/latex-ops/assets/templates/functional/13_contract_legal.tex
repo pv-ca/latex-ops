@@ -1,0 +1,18 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Libertinus Serif}{\setmainfont{Libertinus Serif}\setsansfont{Libertinus Sans}[Scale=0.94]}{\setmainfont{Latin Modern Roman}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{enumitem}
+\setkomafont{disposition}{\sffamily\bfseries}\setlength{\parindent}{0pt}\setlength{\parskip}{.5em}
+\newcounter{clause}
+\newcommand{\Clause}[1]{\refstepcounter{clause}\par\bigskip\noindent{\sffamily\bfseries\large \theclause. #1}\par\smallskip}
+\begin{document}
+{\Huge\bfseries Agreement\par}\texttt{\% [CONTENT: parties, effective date, title]}
+\Clause{Definitions}\texttt{\% [CONTENT: supplied legal definitions]}
+\Clause{Scope / obligations}\texttt{\% [CONTENT: preserve supplied legal text unless editing requested]}
+\begin{enumerate}[label=\theclause.\arabic*,leftmargin=*]\item Illustrative subclause structure.\end{enumerate}
+\Clause{Term and termination}\texttt{\% [CONTENT]}
+\Clause{Signatures}\vspace{3em}\hrulefill\hfill\hrulefill
+\end{document}

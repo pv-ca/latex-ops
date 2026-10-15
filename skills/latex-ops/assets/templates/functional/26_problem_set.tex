@@ -1,0 +1,64 @@
+% Problem Set / Homework: numbered problems with points, answer space, and an optional solutions
+% version compiled from the same source (\solutionstrue). Never write solutions that were not supplied
+% or derived and checked.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{amsmath,mathtools}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\IfFontExistsTF{Inter}{\setsansfont{Inter}}{\setsansfont{Latin Modern Sans}}
+\setmathfont{Latin Modern Math}
+\definecolor{Accent}{HTML}{315B6B}
+\definecolor{Muted}{HTML}{6B6B6B}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.5em}
+\setlist{parsep=0pt}
+
+\newif\ifsolutions \solutionsfalse % \solutionstrue prints solutions instead of answer space
+\newcounter{problem}
+\newenvironment{problem}[1]% #1 = points
+  {\refstepcounter{problem}\par\bigskip\noindent\begin{minipage}{\linewidth}
+   {\sffamily\bfseries Problem \theproblem}\hfill{\sffamily\small\color{Muted}#1 points}\par\smallskip}
+  {\end{minipage}\par}
+\newcommand{\answerspace}[1]{\ifsolutions\else\par\vspace{#1}\fi}
+\newenvironment{solution}
+  {\ifsolutions\par\smallskip\noindent{\sffamily\bfseries\color{Accent}Solution.}\ \else\setbox0\vbox\bgroup\fi}
+  {\ifsolutions\par\else\egroup\fi}
+
+\begin{document}
+
+{\sffamily\small\color{Muted}[CONTENT: course code] \textperiodcentered\ [CONTENT: term]\par}
+{\sffamily\LARGE\bfseries Problem Set [CONTENT: n]\ifsolutions{} --- Solutions\fi\par}
+{\sffamily\color{Muted}Due [CONTENT: date] \textperiodcentered\ [CONTENT: total] points\par}
+
+\medskip
+\textbf{Instructions.} [CONTENT: what to submit, collaboration policy, how to show work]
+
+\begin{problem}{10}
+{}[CONTENT: statement]
+\begin{enumerate}[label=(\alph*)]
+  \item {}[CONTENT: part]
+  \item {}[CONTENT: part]
+\end{enumerate}
+\answerspace{6cm}
+\begin{solution}
+{}[CONTENT: supplied or verified solution]
+\end{solution}
+\end{problem}
+
+\begin{problem}{5}
+{}[CONTENT: statement]
+\answerspace{4cm}
+\begin{solution}
+{}[CONTENT]
+\end{solution}
+\end{problem}
+
+\end{document}

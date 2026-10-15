@@ -1,0 +1,19 @@
+\documentclass[11pt,a4paper]{scrreprt}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{xcolor,tabularx,booktabs}
+\definecolor{Accent}{HTML}{315B6B}
+\setkomafont{disposition}{\sffamily\bfseries}\setlength{\parindent}{0pt}\setlength{\parskip}{.5em}
+\begin{document}
+{\small\sffamily\bfseries\color{Accent} PROPOSAL\par}{\Huge\bfseries Project / Service Proposal\par}\vspace{1.5em}
+\section*{Executive summary}\texttt{\% [CONTENT]}
+\section*{Problem / opportunity}\texttt{\% [CONTENT]}
+\section*{Scope and deliverables}\texttt{\% [CONTENT]}
+\section*{Approach}\texttt{\% [CONTENT]}
+\section*{Timeline}\texttt{\% [CONTENT: only if supplied/requested]}
+\section*{Investment / budget}\texttt{\% [CONTENT: never invent price]}
+\section*{Assumptions and next step}\texttt{\% [CONTENT]}
+\end{document}

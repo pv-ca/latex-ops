@@ -1,0 +1,21 @@
+\documentclass[11pt,a4paper]{scrlttr2}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\setkomavar{fromname}{First Last}
+\setkomavar{fromaddress}{Street 1\\City, Country}
+\setkomavar{fromemail}{email@example.com}
+\setkomavar{subject}{Subject line}
+\setkomavar{signature}{First Last}
+\begin{document}
+\begin{letter}{Recipient Name\\Organization\\Street 2\\City, Country}
+\opening{Dear Recipient,}
+This is an illustrative formal-letter reference. The layout should keep sender, recipient, subject,
+body, closing, and any enclosures easy to identify without decorative excess.
+
+Use the supplied correspondence conventions when institutional or jurisdictional requirements apply.
+\closing{Sincerely,}
+\encl{Optional enclosure}
+\end{letter}
+\end{document}

@@ -1,0 +1,17 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{tabularx}
+\setkomafont{disposition}{\sffamily\bfseries}\setlength{\parindent}{0pt}\setlength{\parskip}{.5em}
+\begin{document}
+{\Large\bfseries Memorandum\par}\vspace{.8em}
+\begin{tabularx}{\linewidth}{@{}p{22mm}X@{}}To:&[CONTENT]\\From:&[CONTENT]\\Date:&[CONTENT]\\Subject:&[CONTENT]\end{tabularx}
+\vspace{1em}\hrule\vspace{.8em}
+\section*{Summary}\texttt{\% [CONTENT]}
+\section*{Background}\texttt{\% [CONTENT]}
+\section*{Analysis}\texttt{\% [CONTENT]}
+\section*{Recommendation}\texttt{\% [CONTENT]}
+\end{document}

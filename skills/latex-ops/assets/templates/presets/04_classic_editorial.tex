@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper,twoside,openright]{memoir}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\IfFontExistsTF{Libertinus Serif}{%
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}[Scale=0.94]
+}{%
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+}
+
+\setstocksize{297mm}{210mm}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settypeblocksize{220mm}{125mm}{*}
+\setlrmargins{30mm}{*}{1.35}
+\setulmargins{28mm}{*}{1.2}
+\checkandfixthelayout
+
+\chapterstyle{hangnum}
+\pagestyle{headings}
+
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0pt}
+
+\begin{document}
+
+\frontmatter
+\title{Classic Editorial}
+\author{Author}
+\date{}
+\maketitle
+\tableofcontents
+
+\mainmatter
+\chapter{Long-form reading}
+
+A classic editorial system should support sustained reading without demanding attention
+for itself. Measure, leading, margins, folios, chapter openings, and page parity work
+together as a durable system.
+
+\section{Proportion}
+The page should preserve a comfortable text block and meaningful inner and outer margins.
+For duplex documents, binding and page parity are functional requirements rather than
+cosmetic choices.
+
+\section{Typography}
+Use a text face suited to long reading. Keep heading interventions restrained and establish
+continuity through consistent paragraph rhythm.
+
+\chapter{Recurring structure}
+Repeated chapter architecture should remain stable throughout a book. Variation belongs
+to content, not arbitrary styling.
+
+\backmatter
+\chapter{Notes}
+Back matter should remain subordinate to the primary reading experience while being easy
+to navigate.
+
+\end{document}

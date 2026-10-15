@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage[paperwidth=594mm,paperheight=841mm,margin=25mm]{geometry}
+\usepackage{multicol,xcolor,booktabs}
+\definecolor{Accent}{HTML}{315B6B}
+\pagestyle{empty}\setlength{\parindent}{0pt}
+\begin{document}
+{\fontsize{38}{44}\selectfont\bfseries Scientific Poster Title\par}
+{\fontsize{18}{22}\selectfont Author · Institution\par}\vspace{1em}\hrule\vspace{1em}
+\begin{multicols}{3}
+{\fontsize{24}{28}\selectfont\bfseries\color{Accent} Question\par}\fontsize{15}{19}\selectfont\texttt{\% [CONTENT]}
+\section*{Method}\texttt{\% [CONTENT]}
+\columnbreak
+{\fontsize{24}{28}\selectfont\bfseries\color{Accent} Results\par}\texttt{\% [CONTENT: prioritize plots/tables/figures]}
+\columnbreak
+{\fontsize{24}{28}\selectfont\bfseries\color{Accent} Interpretation\par}\texttt{\% [CONTENT]}
+\section*{Conclusion}\texttt{\% [CONTENT]}
+\end{multicols}\end{document}

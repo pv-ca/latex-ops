@@ -1,0 +1,29 @@
+{
+  "skill_name": "latex-ops",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I teach adults, intermediate level. Here's my lesson on present perfect vs simple past: a short explanation, 2 examples, 8 gap-fill sentences and a short writing task. Turn it into a nice workbook PDF with LaTeX. Don't make up an answer key.",
+      "expected_output": "Workbook + Swiss Minimal; sober adult design with answer space; no invented key or level; compiled with build.py and pages inspected with preview.py.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Need a PDF proposal for a 3-month in-company English course, twice a week, 8 people. Prices aren't decided yet.",
+      "expected_output": "Proposal + Modern Report; prices and other missing facts marked with % [CONTENT: ...] instead of invented numbers; compiled and inspected.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "my report.tex stopped compiling after I added fontspec and switched to pdflatex: 'Fatal Package fontspec Error'. fix it without touching anything else",
+      "expected_output": "Reproduces with build.py, explains that fontspec needs LuaLaTeX or XeLaTeX, applies the minimal fix (engine change or magic comment), rebuilds and shows the diff.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I'm on Windows with MiKTeX and your templates fail with 'The font \"Inter\" cannot be found'. What do I do?",
+      "expected_output": "Runs or recommends check_env.py; explains MiKTeX does not auto-install fonts requested by name; gives the install command for inter (and Perl for latexmk) and asks before installing.",
+      "files": []
+    }
+  ]
+}

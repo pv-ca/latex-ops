@@ -1,0 +1,28 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Libertinus Serif}{\setmainfont{Libertinus Serif}\setsansfont{Libertinus Sans}[Scale=0.94]}{\setmainfont{Latin Modern Roman}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setkomafont{disposition}{\sffamily\bfseries}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55\baselineskip}
+\newcounter{clause}
+\newcommand{\clause}[1]{\refstepcounter{clause}\par\medskip\noindent{\sffamily\bfseries\large Clause \theclause. #1}\par\smallskip}
+\begin{document}
+{\small\sffamily LEGAL DOCUMENT\par}
+{\Huge\bfseries Legal Minimal\par}
+\vspace{1.5em}
+\clause{Definitions}
+Terms should be defined precisely when the supplied legal content requires them.
+\clause{Obligations}
+Number clauses and subclauses semantically. Structure should support citation and amendment.
+\begin{enumerate}[label=\theclause.\arabic*,leftmargin=*]
+\item First illustrative subclause.
+\item Second illustrative subclause.
+\end{enumerate}
+\clause{Execution}
+Signature areas, dates, annexes, and schedules should remain consistent and conservative.
+\end{document}

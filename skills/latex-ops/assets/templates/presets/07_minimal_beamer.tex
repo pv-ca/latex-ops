@@ -1,0 +1,48 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+
+\IfFontExistsTF{Inter}{\setsansfont{Inter}}{\setsansfont{Latin Modern Sans}}
+\setbeamerfont{title}{size=\Huge,series=\bfseries}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{normal text}{size=\large}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize item}{--}
+
+\title{Minimal Beamer}
+\subtitle{Content-first presentation reference}
+\author{Author}
+\date{}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}{One primary idea}
+  A frame should have one dominant communicative purpose.
+
+  \vspace{1em}
+  \begin{itemize}
+    \item Large readable type.
+    \item Strong whitespace.
+    \item Minimal interface chrome.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Do not compress complexity}
+  If the content cannot be understood at presentation distance, split the argument across
+  multiple frames rather than shrinking the typography.
+\end{frame}
+
+\begin{frame}{Visual hierarchy}
+  Charts, diagrams, equations, and images should receive more visual priority than
+  decorative containers around them.
+\end{frame}
+
+\end{document}

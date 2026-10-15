@@ -1,0 +1,19 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage[landscape,a4paper,margin=10mm]{geometry}
+\usepackage{multicol,xcolor}
+\definecolor{Accent}{HTML}{315B6B}
+\setlength{\parindent}{0pt}\setlength{\parskip}{.45em}
+\begin{document}
+\begin{multicols}{3}
+{\Huge\bfseries Front Panel\par}{\color{Accent} Clear promise or document purpose.\par}
+\columnbreak
+{\Large\bfseries Inside Panel 1\par}\texttt{\% [CONTENT]}
+\section*{Key point}Short, scan-friendly information.
+\columnbreak
+{\Large\bfseries Inside Panel 2\par}\texttt{\% [CONTENT]}
+\section*{Contact / next step}\texttt{\% [CONTENT]}
+\end{multicols}
+\end{document}

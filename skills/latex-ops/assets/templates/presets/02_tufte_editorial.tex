@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[a4paper,left=23mm,right=58mm,top=25mm,bottom=27mm,marginparwidth=42mm,marginparsep=8mm]{geometry}
+\usepackage{marginnote}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\IfFontExistsTF{Libertinus Serif}{%
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}[Scale=0.94]
+}{%
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+}
+
+\definecolor{Muted}{HTML}{606060}
+
+\KOMAoptions{parskip=half}
+\setkomafont{disposition}{\sffamily\bfseries}
+
+\newcommand{\sidenote}[1]{\marginnote{\footnotesize\color{Muted}#1}}
+\newcommand{\newthought}[1]{\par\medskip\noindent{\scshape #1}}
+
+\begin{document}
+
+{\Huge\bfseries Tufte Editorial\par}
+\vspace{0.5\baselineskip}
+{\large\color{Muted}Main narrative with an active information margin.\par}
+
+\vspace{2\baselineskip}
+
+\section{Information proximity}
+\newthought{The defining idea} is not merely a wide margin. The margin carries supporting
+information that benefits from remaining close to the primary discussion.
+\sidenote{Use sidenotes for context, citations, definitions, compact examples, or secondary commentary.}
+
+The main text remains calm and linear. Supporting material should not interrupt the reader
+unless it is part of the principal argument.
+
+\subsection{Margin discipline}
+A margin that is mostly empty should not be retained simply to imitate a reference style.
+The architecture is justified only when information proximity improves comprehension.
+
+\sidenote{\textbf{Rule:} the margin supports the narrative; it does not become a second competing document.}
+
+\section{Editorial rhythm}
+Prefer a narrow, readable measure, quiet section hierarchy, compact footnotes or sidenotes,
+and figures placed near the text that interprets them.
+
+\end{document}

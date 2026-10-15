@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper]{scrbook}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[a4paper,left=22mm,right=55mm,top=25mm,bottom=27mm,marginparwidth=40mm,marginparsep=8mm]{geometry}
+\usepackage{marginnote}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\IfFontExistsTF{Libertinus Serif}{%
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}[Scale=0.94]
+}{%
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+}
+
+\definecolor{Accent}{HTML}{35586C}
+\definecolor{Muted}{HTML}{666666}
+
+\setkomafont{chapter}{\sffamily\bfseries\Huge}
+\setkomafont{section}{\sffamily\bfseries\Large}
+\setkomafont{subsection}{\sffamily\bfseries\large}
+
+\newcommand{\marginlabel}[1]{\marginnote{\footnotesize\sffamily\bfseries\color{Accent}#1}}
+\newenvironment{definition}[1]
+  {\par\medskip\noindent{\sffamily\bfseries\color{Accent}Definition — #1}\par\smallskip}
+  {\par\medskip}
+\newenvironment{example}
+  {\par\medskip\noindent{\sffamily\bfseries Example}\par\smallskip}
+  {\par\medskip}
+\newenvironment{exercise}[1]
+  {\par\medskip\noindent{\sffamily\bfseries Exercise #1}\par\smallskip}
+  {\par\medskip}
+
+\begin{document}
+
+\frontmatter
+\title{Kao Textbook Reference}
+\subtitle{A compact 1.5-column educational architecture}
+\author{Author}
+\maketitle
+\tableofcontents
+
+\mainmatter
+\chapter{A learning chapter}
+\marginlabel{Chapter map}
+The main column carries the teaching sequence. The outer margin carries compact contextual
+information, references, definitions, navigational cues, or supporting examples.
+
+\section{Concept}
+\begin{definition}{Active information margin}
+A margin is active when it reduces interruption by holding useful secondary information
+beside the passage it supports.
+\end{definition}
+
+\marginlabel{Remember}
+Use recurring semantic components consistently. A textbook should feel like one system,
+not a sequence of individually styled pages.
+
+\section{Worked example}
+\begin{example}
+State the principle, show one representative case, then transition into learner practice.
+\end{example}
+
+\section{Practice}
+\begin{exercise}{1}
+Apply the concept to a new example. Leave enough space for the expected response modality.
+\end{exercise}
+
+\end{document}

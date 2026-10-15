@@ -1,0 +1,120 @@
+% latex-ops example: Workbook + Swiss Minimal.
+% Prompt: "Turn my lesson on present perfect vs past simple into a workbook. Adults, intermediate. No answer key."
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[a4paper,margin=22mm,top=20mm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}
+  {\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+
+\definecolor{Accent}{HTML}{315B6B}
+\definecolor{Muted}{HTML}{6B6B6B}
+\definecolor{Rule}{HTML}{BFC6C9}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45\baselineskip}
+\setkomafont{disposition}{\sffamily\bfseries}
+\setkomafont{section}{\Large\sffamily\bfseries}
+\RedeclareSectionCommand[beforeskip=1.2\baselineskip,afterskip=.5\baselineskip]{section}
+\pagestyle{plain}
+\widowpenalty=10000 \clubpenalty=10000
+\setlist{parsep=0pt,topsep=.3em}
+
+\newcounter{exercise}
+\newenvironment{exercise}[1]
+  {\refstepcounter{exercise}\par\medskip\noindent\begin{minipage}{\linewidth}\setlength{\parskip}{0.45\baselineskip}
+   \noindent{\sffamily\bfseries\color{Accent}\theexercise\quad}{\sffamily\bfseries #1}\par\smallskip}
+  {\par\end{minipage}\par\medskip}
+\newenvironment{note}[1]
+  {\par\smallskip\noindent\color{Accent}\rule{\linewidth}{.5pt}\par\smallskip
+   {\sffamily\bfseries #1}\par\normalcolor}
+  {\par\smallskip{\color{Accent}\rule{\linewidth}{.5pt}}\par}
+\newcommand{\gap}[1][2.6cm]{\rule[-.15em]{#1}{.4pt}}
+\newcommand{\answerline}{\par\vspace{1.1\baselineskip}{\color{Rule}\rule{\linewidth}{.4pt}}\par}
+
+\begin{document}
+
+{\small\sffamily\bfseries\color{Muted}UNIT 7 \textperiodcentered\ GRAMMAR IN USE\par}
+\vspace{.3\baselineskip}
+{\fontsize{30}{34}\selectfont\sffamily\bfseries Finished or still open?\par}
+\vspace{.3\baselineskip}
+{\large\color{Muted}Present perfect and past simple for talking about experience and change\par}
+
+\section{How it works}
+
+Choose the tense by asking one question: \emph{is the time period finished?}
+
+\begin{tabularx}{\linewidth}{@{}>{\sffamily\bfseries}p{.19\linewidth}XX@{}}
+\toprule
+ & Past simple & Present perfect \\
+\midrule
+Time & A finished time: \emph{yesterday, in 2019, last week} & Up to now: \emph{ever, never, so far, this year} \\\addlinespace
+Focus & When it happened & That it happened, or its result now \\\addlinespace
+Form & \emph{I visited Lisbon.} & \emph{I have visited Lisbon.} \\
+\bottomrule
+\end{tabularx}
+
+\begin{note}{Watch out}
+Do not use the present perfect with a finished time expression.
+\emph{I have seen her yesterday} is wrong; say \emph{I saw her yesterday}.
+\end{note}
+
+\section{Practice}
+
+\begin{exercise}{Choose the correct form}
+Underline the better option.
+\begin{enumerate}[leftmargin=*,itemsep=.45em]
+  \item I \emph{lost / have lost} my keys. Can you help me look for them?
+  \item We \emph{moved / have moved} to this city in 2021.
+  \item She \emph{never tried / has never tried} sushi.
+  \item They \emph{finished / have finished} the report last night.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{Complete the sentences}
+Use the verb in brackets in the past simple or the present perfect.
+\begin{enumerate}[leftmargin=*,itemsep=.75em]
+  \item How many countries \gap{} you \gap[2cm] (visit) so far?
+  \item I \gap{} (start) this job three years ago.
+  \item He \gap{} (not / call) me yet.
+  \item When \gap[2cm] you \gap[2cm] (learn) to drive?
+  \item Prices \gap{} (go) up a lot this year.
+  \item I \gap{} (read) that book on holiday last summer.
+  \item We \gap{} (already / book) the tickets, so we can relax.
+  \item She \gap{} (work) in Madrid before she joined us.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{Find the mistake}
+Each sentence has one mistake. Rewrite it correctly.
+\begin{enumerate}[leftmargin=*,itemsep=.4em]
+  \item \emph{I have met him at a conference in May.} \answerline
+  \item \emph{Did you ever be to Japan?} \answerline
+  \item \emph{She has left the company last year.} \answerline
+\end{enumerate}
+\end{exercise}
+
+\section{Your turn}
+
+\begin{exercise}{Write about change}
+Write five or six sentences about how your work or studies have changed in the last few years.
+Use at least two verbs in each tense.
+\answerline\answerline\answerline\answerline\answerline
+\end{exercise}
+
+\begin{exercise}{Speaking}
+Ask a partner three \emph{Have you ever\ldots?} questions. For each \emph{yes},
+follow up with a past simple question: \emph{When? Where? What happened?}
+\end{exercise}
+
+\vfill
+{\small\color{Muted}Illustrative example generated with latex-ops. Content invented for demonstration.\par}
+
+\end{document}

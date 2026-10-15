@@ -1,0 +1,16 @@
+\documentclass[10.5pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage{tabularx,booktabs,xcolor}
+\definecolor{Accent}{HTML}{315B6B}
+\setkomafont{disposition}{\sffamily\bfseries}\setlength{\parindent}{0pt}\setlength{\parskip}{.45em}
+\begin{document}
+{\small\sffamily\bfseries\color{Accent} MEETING MINUTES\par}{\Huge\bfseries Meeting Title\par}
+\begin{tabularx}{\linewidth}{@{}lX@{}}Date:&[CONTENT]\\Participants:&[CONTENT]\\Purpose:&[CONTENT]\end{tabularx}
+\section*{1. Topic}\textbf{Discussion}\par\emph{[CONTENT]}\par\medskip\textbf{Decision}\par\emph{[CONTENT]}\par\medskip
+\begin{tabularx}{\linewidth}{@{}Xll@{}}\toprule Action&Owner&Due\\\midrule \texttt{[CONTENT]}&\texttt{[CONTENT]}&\texttt{[CONTENT]}\\\bottomrule\end{tabularx}
+\section*{2. Topic}\texttt{\% [CONTENT]}
+\end{document}

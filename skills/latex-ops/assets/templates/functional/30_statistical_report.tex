@@ -1,0 +1,78 @@
+% Statistical Report: descriptive and inferential results from data the user supplies.
+% Numbers come from the analysis software or from the CSV read here; the agent never computes or
+% rounds results by hand. Report effect sizes and confidence intervals, not only p-values.
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{statistics}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\setmathfont{Latin Modern Math}
+\setkomafont{disposition}{\sffamily\bfseries}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.5em}
+\sisetup{round-mode=places,round-precision=2,table-number-alignment=center}
+
+% Replace with the user's data file: \pgfplotstableread[col sep=comma]{data.csv}\data
+\pgfplotstableread{
+group value
+A 0
+B 0
+}\data
+
+\begin{document}
+{\sffamily\small STATISTICAL REPORT\par}
+{\sffamily\LARGE\bfseries [CONTENT: question being answered]\par}
+{\small [CONTENT: data source, collection period, analyst]\par}
+
+\section{Summary}
+{}[CONTENT: answer in one paragraph with the key estimate and its 95\% CI]
+
+\section{Data}
+{}[CONTENT: sample size, variables, exclusions and why, missing data handling]
+
+\section{Descriptive statistics}
+\begin{table}[ht]
+\centering
+\caption{[CONTENT]}\label{tab:desc}
+\begin{tabular}{l S[table-format=3.0] S[table-format=2.2] S[table-format=2.2]}
+\toprule
+{Group} & {$n$} & {Mean} & {SD} \\
+\midrule
+{}[CONTENT] & 0 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=.7\linewidth,height=5cm,ybar,symbolic x coords={A,B},xtick=data,
+  ylabel={[CONTENT: variable and unit]},axis lines=left,enlarge x limits=.5]
+\addplot table[x=group,y=value]{\data};
+\end{axis}
+\end{tikzpicture}
+\caption{[CONTENT: what the reader should conclude]}\label{fig:desc}
+\end{figure}
+
+\section{Inferential results}
+Report test, statistic, degrees of freedom, p-value, effect size and interval, for example:
+$t(\num{0}) = \num{0.00}$, $p = \num{0.000}$, $d = \num{0.00}$, 95\% CI $[\num{0.00}, \num{0.00}]$.
+{}[CONTENT]
+
+\section{Assumptions and limitations}
+{}[CONTENT: checks performed and what they showed]
+\end{document}

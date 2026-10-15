@@ -1,0 +1,19 @@
+\documentclass[10.5pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage{tabularx,booktabs,enumitem}
+\setkomafont{disposition}{\sffamily\bfseries}\setlength{\parindent}{0pt}\setlength{\parskip}{.45em}
+\begin{document}
+{\Huge\bfseries Standard Operating Procedure\par}
+\begin{tabularx}{\linewidth}{@{}lXlX@{}}ID:&[CONTENT]&Version:&[CONTENT]\\Owner:&[CONTENT]&Status:&[CONTENT]\end{tabularx}
+\section*{Purpose}\texttt{\% [CONTENT]}
+\section*{Scope}\texttt{\% [CONTENT]}
+\section*{Prerequisites}\texttt{\% [CONTENT]}
+\section*{Procedure}\begin{enumerate}[leftmargin=*]\item Perform a specific action.\item Verify the observable result.\item Continue only when the condition is satisfied.\end{enumerate}
+\section*{Verification}\texttt{\% [CONTENT: completion criteria]}
+\section*{Exceptions}\texttt{\% [CONTENT]}
+\section*{Revision history}\begin{tabularx}{\linewidth}{@{}lllX@{}}\toprule Version&Date&Owner&Change\\\midrule \texttt{[CONTENT]}&\texttt{[CONTENT]}&\texttt{[CONTENT]}&\texttt{[CONTENT]}\\\bottomrule\end{tabularx}
+\end{document}

@@ -1,0 +1,87 @@
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+\IfFontExistsTF{Inter}{%
+  \setmainfont{Inter}
+  \setsansfont{Inter}
+}{%
+  \setmainfont{Latin Modern Sans}
+  \setsansfont{Latin Modern Sans}
+}
+
+\definecolor{Accent}{HTML}{2F5D73}
+\definecolor{Muted}{HTML}{666666}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip}
+\setkomafont{disposition}{\sffamily\bfseries}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{descriptionlabel}{\sffamily\bfseries}
+
+\setlist{nosep,leftmargin=*}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Accent,
+  urlcolor=Accent,
+  pdfauthor={Author},
+  pdftitle={Swiss Minimal Reference}
+}
+
+\newcommand{\eyebrow}[1]{%
+  {\small\sffamily\bfseries\color{Muted}\MakeUppercase{#1}\par}%
+  \vspace{0.35\baselineskip}%
+}
+
+\newenvironment{keypoint}
+  {\par\medskip\noindent\begin{minipage}{\linewidth}\small
+   \color{Muted}\rule{\linewidth}{0.4pt}\par\medskip}
+  {\medskip\par\color{Muted}\rule{\linewidth}{0.4pt}\end{minipage}\par\medskip}
+
+\begin{document}
+
+\eyebrow{Reference system}
+{\Huge\bfseries Swiss Minimal\par}
+\vspace{0.6\baselineskip}
+{\large\color{Muted}Quiet hierarchy, precise alignment, restrained visual language.\par}
+
+\vspace{2\baselineskip}
+
+\section{Primary hierarchy}
+The page should feel organized before it feels decorated. Use position, whitespace,
+scale, and weight before introducing rules, boxes, or color.
+
+\subsection{Example component}
+\begin{keypoint}
+\textbf{Key point.} A semantic callout should exist because the content requires a distinct
+reading mode, not because the page needs decoration.
+\end{keypoint}
+
+\section{Table treatment}
+\begin{tabularx}{\linewidth}{@{}lXr@{}}
+\toprule
+Item & Description & Value \\
+\midrule
+A & Clear semantic alignment & 24 \\
+B & Minimal framing & 18 \\
+C & Controlled emphasis & 12 \\
+\bottomrule
+\end{tabularx}
+
+\section{List treatment}
+\begin{itemize}
+  \item Short labels and predictable indentation.
+  \item Tight but readable spacing.
+  \item One accent role rather than a palette of competing colors.
+\end{itemize}
+
+\end{document}

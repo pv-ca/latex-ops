@@ -1,0 +1,16 @@
+\documentclass[10.5pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage{tabularx,amssymb}
+\setlength{\parindent}{0pt}\setlength{\parskip}{.55em}\setkomafont{disposition}{\sffamily\bfseries}
+\newcommand{\field}[1]{\textbf{#1}\par\vspace{1.2em}\hrule\par}
+\begin{document}
+{\Huge\bfseries Form Title\par}{\small Printable static form reference\par}\vspace{1em}
+\field{Full name}\field{Date}
+\section*{Selection}$\square$ Option A\qquad $\square$ Option B\qquad $\square$ Option C
+\section*{Details}\field{Response}\field{Additional notes}
+\section*{Completion check}$\square$ Required information reviewed\qquad $\square$ Signature attached if required
+\end{document}

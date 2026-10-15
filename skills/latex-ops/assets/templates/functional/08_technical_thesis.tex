@@ -1,0 +1,19 @@
+\documentclass[11pt,a4paper]{scrreprt}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Libertinus Serif}{\setmainfont{Libertinus Serif}\setsansfont{Libertinus Sans}[Scale=0.94]}{\setmainfont{Latin Modern Roman}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,booktabs,graphicx}
+\usepackage[hidelinks]{hyperref}
+\setkomafont{disposition}{\sffamily\bfseries}
+\begin{document}
+\title{Technical Thesis Reference}\author{Author}\date{Year}\maketitle\tableofcontents
+\chapter{Problem Definition}\texttt{\% [CONTENT: objective, scope, constraints]}
+\chapter{Method}Use semantic equations and consistent notation:
+\begin{equation} y = \alpha + \beta x + \varepsilon. \end{equation}
+\chapter{Results}
+\begin{table}[ht]\centering\caption{Illustrative result table}\begin{tabular}{lrr}\toprule Metric&A&B\\\midrule Value&1.0&1.2\\\bottomrule\end{tabular}\end{table}
+\chapter{Discussion}\texttt{\% [CONTENT: interpretation grounded in results]}
+\appendix\chapter{Technical Appendix}\texttt{\% [CONTENT]}
+\end{document}

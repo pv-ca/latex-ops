@@ -1,0 +1,58 @@
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+\IfFontExistsTF{Inter}{%
+  \setmainfont{Inter}
+  \setsansfont{Inter}
+}{%
+  \setmainfont{Latin Modern Sans}
+  \setsansfont{Latin Modern Sans}
+}
+
+\definecolor{Accent}{HTML}{315B6B}
+\definecolor{Muted}{HTML}{666666}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip}
+\setkomafont{disposition}{\sffamily\bfseries}
+
+\begin{document}
+
+{\small\sffamily\bfseries\color{Muted}DIAGNOSTIC ASSESSMENT\par}
+{\Huge\bfseries Learner Report\par}
+
+\vspace{1.5\baselineskip}
+
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+Student & \texttt{\% [CONTENT: student name]} \\
+Date & \texttt{\% [CONTENT: assessment date]} \\
+Level & \texttt{\% [CONTENT: level only if supported by evidence]} \\
+\end{tabularx}
+
+\section{Diagnostic summary}
+\texttt{\% [CONTENT: concise evidence-based summary]}
+
+\section{Performance overview}
+\begin{tabularx}{\linewidth}{@{}Xlll@{}}
+\toprule
+Area & Evidence & Interpretation & Priority \\
+\midrule
+Grammar & --- & --- & --- \\
+Vocabulary & --- & --- & --- \\
+Production & --- & --- & --- \\
+\bottomrule
+\end{tabularx}
+
+\section{Representative evidence}
+\texttt{\% [CONTENT: student response or observed evidence]}
+
+\section{Recommended next step}
+\texttt{\% [CONTENT: recommendation supported by the assessment evidence]}
+
+\end{document}

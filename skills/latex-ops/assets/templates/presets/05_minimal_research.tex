@@ -1,0 +1,52 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{newtxtext,newtxmath}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+
+\title{\vspace{-1.5em}Minimal Research Reference}
+\author{First Author \and Second Author}
+\date{Month Year}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A sober academic-paper reference optimized for reading, scanning, equations, tables,
+figures, and conventional scholarly structure.
+\end{abstract}
+
+\section{Introduction}
+The hierarchy is deliberately small. The paper should make arguments, evidence, equations,
+tables, and figures easy to find without adding graphic noise.
+
+\section{Method}
+Use semantic mathematical environments:
+\begin{equation}
+y = \alpha + \beta x + \varepsilon.
+\end{equation}
+
+\section{Results}
+\begin{table}[ht]
+\centering
+\caption{Representative table treatment}
+\begin{tabular}{lrr}
+\toprule
+Measure & Group A & Group B \\
+\midrule
+Value 1 & 12.4 & 14.1 \\
+Value 2 &  8.2 &  7.9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Conclusion}
+A research preset should remain subordinate to venue requirements. When a journal or
+conference controls typography and layout, preserve that class instead.
+
+\end{document}

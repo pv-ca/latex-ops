@@ -1,0 +1,18 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage{xcolor,tabularx,booktabs}
+\definecolor{Accent}{HTML}{315B6B}\definecolor{Muted}{HTML}{666666}
+\setkomafont{disposition}{\sffamily\bfseries}\setlength{\parindent}{0pt}\setlength{\parskip}{.5em}
+\newcommand{\brieflabel}[1]{\small\sffamily\bfseries\color{Accent}#1\par}
+\begin{document}
+\brieflabel{EXECUTIVE BRIEF}
+{\Huge\bfseries Decision Topic\par}{\color{Muted} One-to-three page decision-oriented format.\par}
+\section*{Issue / opportunity}\texttt{\% [CONTENT: concise framing]}
+\section*{What matters}\begin{itemize}\item Evidence-backed finding.\item Evidence-backed constraint.\item Evidence-backed implication.\end{itemize}
+\section*{Recommendation}\texttt{\% [CONTENT: recommendation supported by evidence]}
+\section*{Immediate next step}\texttt{\% [CONTENT: next action when requested/supported]}
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{scrbook}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[a4paper,left=23mm,right=53mm,top=25mm,bottom=28mm,marginparwidth=38mm,marginparsep=7mm]{geometry}
+\usepackage{marginnote}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\IfFontExistsTF{Libertinus Serif}{%
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}[Scale=0.94]
+}{%
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+}
+\definecolor{Accent}{HTML}{315B6B}
+
+\setkomafont{chapter}{\sffamily\bfseries\Huge}
+\setkomafont{section}{\sffamily\bfseries\Large}
+
+\newcommand{\margininfo}[1]{\marginnote{\footnotesize\sffamily #1}}
+\newenvironment{languagenote}
+{\par\medskip\noindent{\sffamily\bfseries\color{Accent}Language Note}\par\smallskip}
+{\par\medskip}
+
+\begin{document}
+
+\frontmatter
+\title{Learner's Guide}
+\subtitle{Book/Guide + Kao-inspired information architecture}
+\author{Author}
+\maketitle
+\tableofcontents
+
+\mainmatter
+
+\chapter{Core concept}
+\margininfo{Use the margin for supporting information that benefits from proximity.}
+
+The main narrative carries explanation and progression.
+
+\begin{languagenote}
+Recurring semantic elements should keep the same typography and spacing throughout the guide.
+\end{languagenote}
+
+\section{Example}
+A worked example belongs close to the explanation it demonstrates.
+
+\section{Practice}
+For instructional books, transition from explanation to example to meaningful practice
+without forcing every chapter into an identical sequence when the content does not require it.
+
+\end{document}

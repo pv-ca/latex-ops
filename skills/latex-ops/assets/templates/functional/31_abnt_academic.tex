@@ -1,0 +1,86 @@
+% ABNT academic work (trabalho acadêmico: TCC, monografia, dissertação) with abnTeX2.
+% Follows the ABNT NBR 14724 element order through the class; the institution's own rules override.
+% Compile with pdfLaTeX or LuaLaTeX; citations in author-date style via abntex2cite.
+\documentclass[12pt,openright,oneside,a4paper,english,brazil]{abntex2}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[alf]{abntex2cite}
+
+\titulo{[CONTEÚDO: título do trabalho]}
+\autor{[CONTEÚDO: nome do autor]}
+\local{[CONTEÚDO: cidade]}
+\data{[CONTEÚDO: ano]}
+\orientador{[CONTEÚDO: orientador]}
+\instituicao{[CONTEÚDO: universidade]\par[CONTEÚDO: faculdade]\par[CONTEÚDO: programa ou curso]}
+\tipotrabalho{Trabalho de Conclusão de Curso}
+\preambulo{[CONTEÚDO: Trabalho apresentado ao curso de ... como requisito parcial para obtenção do grau de ...]}
+
+\hypersetup{hidelinks}
+\makeindex
+
+\begin{document}
+\selectlanguage{brazil}
+\frenchspacing
+
+\imprimircapa
+\imprimirfolhaderosto
+
+\begin{resumo}
+{}[CONTEÚDO: resumo em um parágrafo, 150 a 500 palavras]
+
+\textbf{Palavras-chave}: [CONTEÚDO]. [CONTEÚDO]. [CONTEÚDO].
+\end{resumo}
+
+\begin{resumo}[Abstract]
+\begin{otherlanguage*}{english}
+{}[CONTENT: abstract]
+
+\vspace{\onelineskip}
+\noindent\textbf{Keywords}: [CONTENT].
+\end{otherlanguage*}
+\end{resumo}
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\textual
+
+\chapter{Introdução}
+{}[CONTEÚDO: problema, objetivos, justificativa]. Cite só obras verificadas, com \texttt{\textbackslash citeonline} ou \texttt{\textbackslash cite} e um arquivo \texttt{.bib} processado pelo BibTeX.
+
+\chapter{Referencial teórico}
+{}[CONTEÚDO]
+
+\chapter{Metodologia}
+{}[CONTEÚDO]
+
+\begin{table}[htb]
+\IBGEtab{\caption{[CONTEÚDO: título da tabela]}\label{tab:exemplo}}{%
+\begin{tabular}{lr}
+\toprule
+Variável & Valor \\
+\midrule
+{}[CONTEÚDO] & -- \\
+\bottomrule
+\end{tabular}}{\fonte{[CONTEÚDO: fonte]}}
+\end{table}
+
+\chapter{Resultados e discussão}
+{}[CONTEÚDO]
+
+\chapter{Conclusão}
+{}[CONTEÚDO]
+
+\postextual
+% Só referências verificadas; nunca escrever uma entrada de memória.
+\begin{thebibliography}{9}
+\bibitem[Sobrenome 2020]{chave} [CONTEÚDO: referência verificada no formato ABNT NBR 6023]
+\end{thebibliography}
+
+\end{document}

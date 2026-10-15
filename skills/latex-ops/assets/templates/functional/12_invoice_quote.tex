@@ -1,0 +1,16 @@
+\documentclass[10.5pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage{booktabs,tabularx,siunitx}
+\sisetup{group-separator={,},group-minimum-digits=4}
+\setlength{\parindent}{0pt}\setlength{\parskip}{.45em}
+\begin{document}
+{\Huge\bfseries Quote / Invoice\par}
+\begin{tabularx}{\linewidth}{@{}Xr@{}}From: [CONTENT]&No.: [CONTENT]\\Bill to: [CONTENT]&Date: [CONTENT]\end{tabularx}
+\vspace{1.5em}
+\begin{tabularx}{\linewidth}{@{}X r r r@{}}\toprule Description&Qty&Unit&Amount\\\midrule Illustrative service&2&100.00&200.00\\\midrule\multicolumn{3}{r}{Subtotal}&200.00\\\multicolumn{3}{r}{Tax / discount}&0.00\\\multicolumn{3}{r}{\bfseries Total}&\bfseries 200.00\\\bottomrule\end{tabularx}
+\vspace{1em}\textbf{Terms}\\\texttt{\% [CONTENT: payment terms / validity / notes]}
+\end{document}

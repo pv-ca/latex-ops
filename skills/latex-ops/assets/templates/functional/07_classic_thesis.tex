@@ -1,0 +1,22 @@
+\documentclass[11pt,a4paper,twoside,openright]{scrbook}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Libertinus Serif}{\setmainfont{Libertinus Serif}\setsansfont{Libertinus Sans}[Scale=0.94]}{\setmainfont{Latin Modern Roman}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,inner=32mm,outer=25mm,top=28mm,bottom=30mm]{geometry}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\setkomafont{chapter}{\sffamily\bfseries\Huge}
+\setkomafont{section}{\sffamily\bfseries\Large}
+\begin{document}
+\frontmatter
+\title{Classic Thesis Reference}\author{Author}\date{Year}\maketitle\tableofcontents
+\mainmatter
+\chapter{Introduction}Long-form academic work should privilege sustained reading, durable proportions, and navigable chapter structure.
+\section{Research context}\texttt{\% [CONTENT: source-grounded thesis context]}
+\chapter{Analysis}Figures, tables, citations, and argument structure should remain semantically consistent.
+\chapter{Conclusion}\texttt{\% [CONTENT: conclusion]}
+\appendix\chapter{Supplementary material}\texttt{\% [CONTENT: appendix when needed]}
+\backmatter
+\chapter*{Bibliography}\texttt{\% [CONTENT: bibliography managed by the required system]}
+\end{document}

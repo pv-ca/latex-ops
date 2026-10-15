@@ -1,0 +1,75 @@
+% Conference Paper: two-column, page-limited, often anonymous for review.
+% Real submissions use the venue's official kit (IEEEtran, acmart, llncs, a .sty of the year);
+% this reference shows the structure and density such papers need.
+\documentclass[10pt,a4paper,twocolumn]{article}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage[a4paper,margin=18mm,columnsep=7mm]{geometry}
+\usepackage{amsmath,amsthm}
+\usepackage{newtxtext,newtxmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf,skip=4pt]{caption}
+\usepackage{algorithm,algpseudocode}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\newif\ifreview \reviewtrue % set \reviewfalse for camera-ready
+\title{[CONTENT: concise title]}
+\author{\ifreview Anonymous submission\else [CONTENT: authors and affiliations]\fi}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+{}[CONTENT: one paragraph, no citations, main quantitative result]
+\end{abstract}
+
+\section{Introduction}
+{}[CONTENT: problem, gap, contributions as a short list]
+\begin{itemize}\setlength{\itemsep}{0pt}
+  \item {}[CONTENT: contribution 1]
+  \item {}[CONTENT: contribution 2]
+\end{itemize}
+
+\section{Method}
+\begin{algorithm}[htb]
+\caption{[CONTENT: algorithm name]}\label{alg:main}
+\begin{algorithmic}[1]
+\Require [CONTENT: inputs]
+\State [CONTENT: step]
+\State \Return [CONTENT: output]
+\end{algorithmic}
+\end{algorithm}
+\Cref{alg:main} [CONTENT].
+
+\section{Experiments}
+\begin{table}[htb]
+\centering\small
+\caption{[CONTENT: results; best per column in bold only if supplied]}\label{tab:res}
+\begin{tabular}{lcc}
+\toprule
+Method & [CONTENT: metric] & [CONTENT: metric] \\
+\midrule
+{}[CONTENT] & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+{}[CONTENT: setup, baselines, results referring to \cref{tab:res}]
+
+\section{Related work}
+{}[CONTENT]
+
+\section{Conclusion}
+{}[CONTENT]
+
+\ifreview\else\section*{Acknowledgments}[CONTENT]\fi
+
+\begin{thebibliography}{9}\small
+\bibitem{key} [CONTENT: verified reference in the venue's style]
+\end{thebibliography}
+
+\end{document}

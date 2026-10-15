@@ -1,0 +1,71 @@
+% Lecture Notes: definitions, theorems, examples and exercises for a course. Pair with Kao Textbook
+% or Swiss Minimal. Numbering by section keeps references stable as notes grow.
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{amsmath,mathtools,amsthm}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{xcolor}
+\usepackage{thmtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmathfont{Libertinus Math}
+\setkomafont{disposition}{\sffamily\bfseries}
+\definecolor{Accent}{HTML}{315B6B}
+
+\declaretheoremstyle[headfont=\sffamily\bfseries,bodyfont=\itshape,spaceabove=.8em,spacebelow=.8em]{thm}
+\declaretheoremstyle[headfont=\sffamily\bfseries,bodyfont=\normalfont,spaceabove=.8em,spacebelow=.8em]{defn}
+\declaretheorem[style=thm,numberwithin=section]{theorem}
+\declaretheorem[style=thm,sibling=theorem]{lemma,proposition,corollary}
+\declaretheorem[style=defn,sibling=theorem]{definition,example}
+\declaretheorem[style=defn,numbered=no]{remark}
+\declaretheorem[style=defn,numberwithin=section,name=Exercise]{exercise}
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\R}{\mathbb{R}}
+
+\title{[CONTENT: course] \\ \large Lecture [CONTENT: n]: [CONTENT: topic]}
+\author{[CONTENT: lecturer]}
+\date{[CONTENT: date]}
+
+\begin{document}
+\maketitle
+
+\paragraph{Learning goals.} By the end of this lecture you can [CONTENT].
+
+\section{[CONTENT: first idea]}
+
+\begin{definition}\label{def:main}
+{}[CONTENT: precise definition; define every symbol]
+\end{definition}
+
+\begin{example}
+{}[CONTENT: concrete example before the general statement]
+\end{example}
+
+\begin{theorem}\label{thm:main}
+{}[CONTENT: statement]
+\end{theorem}
+
+\begin{proof}
+{}[CONTENT: proof, citing \cref{def:main} where used]
+\end{proof}
+
+\begin{remark}
+{}[CONTENT: intuition or common mistake]
+\end{remark}
+
+\section{Exercises}
+
+\begin{exercise}
+{}[CONTENT]
+\end{exercise}
+
+\end{document}

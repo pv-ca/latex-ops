@@ -1,0 +1,21 @@
+\documentclass[10.5pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=20mm]{geometry}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\definecolor{Muted}{HTML}{666666}
+\setlength{\parindent}{0pt}\setlength{\parskip}{0.35em}
+\setkomafont{disposition}{\sffamily\bfseries}
+\newcommand{\cvitem}[3]{\noindent\begin{tabularx}{\linewidth}{@{}p{.18\linewidth}X@{}}{\color{Muted}#1} & {\bfseries #2}\\ & #3\end{tabularx}\par\medskip}
+\begin{document}
+{\Huge\bfseries First Last\par}{\large Professional Role\par}{\color{Muted} City · email@example.com · +00 000 000 000\par}
+\section*{Profile}\textit{[Illustrative content]} Concise professional summary focused on scope, evidence, and outcomes.
+\section*{Experience}\cvitem{2024--Present}{Role — Organization}{One or two evidence-based bullets or concise achievement statements.}
+\cvitem{2021--2024}{Previous Role — Organization}{Describe responsibilities and outcomes without decorative skill bars.}
+\section*{Education}\cvitem{2020}{Degree — Institution}{Field or distinction if relevant.}
+\section*{Skills}Explicit skill names, tools, languages, or domains. Avoid unexplained visual ratings.
+\end{document}

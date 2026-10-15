@@ -1,0 +1,12 @@
+__pycache__/
+.pytest_cache/
+.claude/
+*.aux
+*.log
+!tests/fixtures/*.log
+*.fls
+*.fdb_latexmk
+*.out
+*.toc
+*.synctex.gz
+*.pdf

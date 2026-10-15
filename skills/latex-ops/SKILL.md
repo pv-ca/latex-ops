@@ -1,0 +1,108 @@
+---
+name: latex-ops
+description: Create, convert, redesign, fix and compile LaTeX documents that look professionally typeset, then check the PDF page by page. Use whenever the task involves a .tex file, LaTeX, Beamer, TikZ or a typeset PDF, and whenever someone wants a well-designed printable document such as a worksheet, workbook, report, course plan, guide, book, CV, letter, thesis, paper, brief, memo, proposal, invoice, contract, minutes, magazine, brochure, poster, portfolio, manual, SOP, cheat sheet or form, even if they never say "LaTeX". Also use it for mathematical and statistical writing (equations, proofs, lecture notes, problem sets, regression tables, data plots), to format papers and theses for a journal, conference or university template, to turn rough notes, Markdown or Word content into a designed PDF, to fix LaTeX that does not compile, to set up a TeX installation, and to produce accessible (tagged) PDF.
+license: MIT
+compatibility: Needs a TeX distribution with LuaLaTeX (TeX Live or TinyTeX recommended; MiKTeX works) and Python 3.8+ for the helper scripts. Works on Windows, macOS and Linux.
+metadata:
+  version: "0.1.0"
+---
+
+# latex-ops
+
+Make LaTeX documents that read as published, not exported: faithful to the supplied content, technically sound, and designed for the reader. Design comes from typography, proportion, hierarchy, spacing and consistency, informed by Dieter Rams' restraint and contemporary editorial practice, not from ornament.
+
+## Priorities
+
+When requirements conflict, resolve them in this order:
+
+1. Explicit user requirements and mandatory institutional, journal, publisher, accessibility or venue rules.
+2. Factual accuracy and preservation of the supplied meaning.
+3. Compilation correctness and dependency compatibility.
+4. Reader comprehension, navigation and accessibility.
+5. Maintainable, semantic source.
+6. Editorial and visual refinement.
+7. Novelty.
+
+## Match the action to the request
+
+- **Question or troubleshooting:** answer directly; a minimal example only when it helps. Do not turn a LaTeX question into a document project.
+- **Critique or diagnosis:** read the material first; separate technical defects, reader-experience defects, maintainability problems and optional refinements. Do not rewrite unless asked.
+- **Fix:** follow "Fixing a build" below; smallest change that works, no unrelated refactors.
+- **Revision or redesign:** read the existing source before claiming anything; keep sound and mandatory decisions; change what was asked or what coherence requires.
+- **New document:** choose a functional template and a visual preset (below) and produce a complete document.
+- **Conversion:** decide which kind is wanted. *Faithful* keeps structure and wording. *Editorial* (the default for instructional, professional and long-form material) keeps content and meaning but improves hierarchy, tables, exercises, spacing and page behaviour. *Redesign* reconsiders the architecture. Never change answer keys, results, quotations or factual claims to improve the design.
+- **Code only:** return only the LaTeX; put indispensable dependency notes in comments.
+- **Slides:** Beamer only when slides are requested.
+
+Ask a question only when a missing fact would make the result wrong or change its architecture; otherwise choose sensibly and say what you chose. Ask before anything destructive, costly, externally visible, or that installs software.
+
+## Ground everything in what was supplied
+
+The user's text, files, data, citations, images, templates and institutional rules are the evidence. Do not invent facts, numbers, scores, proficiency levels, quotations, citations, bibliography entries, authors, dates, prices, legal terms, image files, fonts, venue rules, or compilation and validation results. Mark missing content where it belongs:
+
+```latex
+% [CONTENT: client name and address]
+```
+
+Illustrative content only when asked for, and visibly marked as such. Deterministic calculation outranks prose for totals and statistics. For version-sensitive package, compiler, accessibility or venue behaviour, check current official documentation when you can, and say so when you could not.
+
+## Design: two coordinates
+
+Every designed document has a **functional template** (what the reader must do with it and how information is organized) and a **visual preset** (how it looks). Function outranks style; mandatory venue or institutional rules outrank both.
+
+1. Read `references/functional-templates.md` and pick the template.
+2. Read `references/visual-presets.md` and pick the preset.
+3. Open only the matching files in `assets/templates/functional/` and `assets/templates/presets/` (a second preset only for a requested hybrid).
+4. Adapt them to the real content, medium, fonts, venue and toolchain. They are design evidence, not boilerplate: copy into the user's document, never edit the bundled files.
+
+Templates: Workbook/Worksheet, Assessment Report, Course Plan, Book/Guide, Professional CV, Formal Letter, Classic Thesis, Technical Thesis, Executive Brief, Professional Memo, Proposal, Invoice & Quote, Contract/Legal, Meeting Minutes/Agenda, Magazine Editorial, Brochure/Flyer, Poster (scientific or editorial), Portfolio/Case Study, Technical Manual, SOP/Procedure, One-Page Reference, Form; academic: Research Article, Conference Paper, Lecture Notes, Problem Set, Lab Report, Literature Review, Research Proposal, Statistical Report, ABNT Academic Work (Brazil), Response to Reviewers.
+
+Presets: Swiss Minimal, Tufte Editorial, Kao Textbook, Classic Editorial, Minimal Research, Modern Report, Minimal Beamer, Magazine Editorial, Legal Minimal.
+
+Usual pairs: exercises → Workbook + Swiss Minimal; student report → Assessment Report + Modern Report; long educational guide → Book/Guide + Kao Textbook; CV or letter → Swiss Minimal; paper without venue rules → Research Article + Minimal Research; course notes → Lecture Notes; homework → Problem Set; Brazilian thesis → ABNT Academic Work; proposal → Proposal + Modern Report; contract → Contract/Legal + Legal Minimal; newsletter → Magazine Editorial; manual, SOP, reference card or form → matching template + Swiss Minimal; talk → Minimal Beamer. Choose without asking when one option is clearly better.
+
+Before writing a preamble or styling components, read the relevant section of `references/design-rules.md` (typography and layout, classes and packages, components, accessibility, source architecture). For a paper, thesis, or formatting for a journal, conference or university, read its *Academic papers and theses* section first: the venue's official kit overrides every preset. For slides, read *Presentations*.
+
+For mathematics (equations, theorems, notation, matrices, algorithms, plots, units) read `references/math.md`; for data analysis, statistical reporting and data plots read `references/statistics.md`; when content comes from Python, R, Julia, Quarto, Pandoc or Overleaf, or for TikZ diagram systems, read `references/integrations.md`.
+
+## Tools
+
+Scripts live in `scripts/` next to this file; run them with `python3` (`python` or `py` on Windows). They use only the standard library.
+
+| Script | Use |
+| --- | --- |
+| `check_env.py` | First LaTeX task on a machine, or when a build fails for a reason outside the document. Reports distribution, engines, latexmk, renderer and missing packages. `--install` shows the install command; `--install --yes` runs it, only after the user agrees |
+| `build.py FILE.tex` | Compile (latexmk when it works, else the engine plus biber/bibtex until references settle). Shell escape off unless `--shell-escape`, which runs code from the document: use only when the user wants it. Prints errors with file and line, undefined references and citations, missing glyphs, overfull boxes |
+| `preview.py FILE.pdf --pages 1,3-4` | Render pages to PNG to look at them. If it reports no renderer, read the PDF directly |
+
+If the tools are unavailable (no shell, no TeX), do static review and say plainly that nothing was compiled. Read `references/platforms.md` for Windows, MiKTeX, Linux-packaged TeX Live, Overleaf and font problems, and `references/technical.md` for engines, specialized classes and tagged PDF.
+
+## Workflow for substantial work
+
+1. **Inspect:** read the sources, assets and constraints together.
+2. **Specify:** reader, template, preset, medium and page size, engine, fonts, the recurring components; only the criteria the task needs.
+3. **Implement:** the complete result with the smallest coherent set of classes, packages and macros. One self-contained `.tex` unless a multi-file project helps or was requested.
+4. **Compile:** `build.py`.
+5. **Look:** read the report, then render representative pages (all pages of short documents) and check them: hierarchy, stranded headings, near-empty pages, floats, cramped or overflowing tables, clipped text, missing glyphs, answer space.
+6. **Correct** what matters and rebuild when the change can affect the output.
+7. **Reduce:** remove packages, decoration and macros that no longer solve a real problem.
+
+Never claim compilation, rendering, visual inspection, or PDF/UA, PDF/A or WCAG conformance unless that check actually ran.
+
+## Fixing a build
+
+1. Find the root document (build configuration, `latexmkrc`, magic comments, the file with `\documentclass`); do not assume `main.tex`. Reproduce with the project's own build command or `build.py` before editing, and keep the original error text.
+2. Fix the first real error: later ones are usually consequences. Common causes: wrong engine (`fontspec` or `unicode-math` under pdfLaTeX), package or font not installed (`check_env.py`), unbalanced environment or brace, undefined command, Unicode character the font lacks, a file path that does not exist, the wrong bibliography step (check biblatex's `backend=` before running biber; projects with `\bibliography{}` use BibTeX).
+3. Change as little as possible. Do not alter equation meaning, table cells, citation and label keys, bibliography records, file paths, comments or verbatim/code blocks, and never edit official `.cls`, `.sty` or `.bst` files. Never make an error disappear by deleting or commenting out content.
+4. Rebuild until stable. Keep build failures separate from warnings (undefined references, overfull boxes): a PDF with `??` in it compiled but is not finished.
+5. Report the files changed and why, the command and engine used, the result, where the log and PDF are, whether pages were inspected, and what remains for the author to decide.
+
+## Output
+
+- New document or full redesign: a 2–3 sentence design brief (reader, template, preset, medium, structural logic), the LaTeX file, and at most five design decisions, dependencies or places to edit.
+- Revision: a short evidence-based diagnosis, the complete revised file (or a patch if asked), at most five material changes.
+- Always state what was compiled and inspected, and what was not.
+
+## Final check
+
+Before returning substantial work, confirm once: the request was classified correctly; supplied content survived; mandatory constraints beat aesthetics; template and preset fit the reading task; typography, spacing and components form one system; every package earns its place; missing information is marked, not invented; validation claims match what ran; the output matches the requested mode.

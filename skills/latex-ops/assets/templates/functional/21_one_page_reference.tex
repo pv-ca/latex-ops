@@ -1,0 +1,19 @@
+\documentclass[9.5pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=14mm]{geometry}
+\usepackage{multicol,xcolor}
+\definecolor{Accent}{HTML}{315B6B}
+\setkomafont{disposition}{\sffamily\bfseries}\setlength{\parindent}{0pt}\setlength{\parskip}{.25em}\pagestyle{empty}
+\begin{document}
+{\Huge\bfseries One-Page Reference\par}{\color{Accent} Retrieval-first compact document.\par}\vspace{.8em}
+\begin{multicols}{3}
+\section*{Concept A}Short definition or command.\\\texttt{example --flag value}
+\section*{Concept B}Use concise semantic blocks rather than long prose.
+\columnbreak\section*{Workflow}1. Step\\2. Step\\3. Verify
+\section*{Warnings}Only real warnings belong here.
+\columnbreak\section*{Lookup}Key: value\\Key: value\\Key: value
+\section*{Notes}\texttt{\% [CONTENT]}
+\end{multicols}\end{document}

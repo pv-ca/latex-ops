@@ -1,0 +1,66 @@
+% Research Proposal / grant: aims, significance, method, timeline, budget, risks. Funders' templates
+% and page limits override this structure. Never invent budget figures, dates or preliminary results.
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{pgfgantt}
+\usepackage[hidelinks]{hyperref}
+
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setkomafont{disposition}{\sffamily\bfseries}
+\definecolor{Accent}{HTML}{315B6B}
+
+\begin{document}
+{\sffamily\small RESEARCH PROPOSAL\par}
+{\sffamily\LARGE\bfseries [CONTENT: project title]\par}
+{\small Principal investigator: [CONTENT] \textperiodcentered\ Requested duration: [CONTENT]\par}
+
+\section{Summary}
+{}[CONTENT: one paragraph a non-specialist can follow]
+
+\section{Aims}
+\begin{enumerate}
+  \item \textbf{Aim 1.} [CONTENT: testable aim]
+  \item \textbf{Aim 2.} [CONTENT]
+\end{enumerate}
+
+\section{Significance and background}
+{}[CONTENT: gap in knowledge, supported by verified sources]
+
+\section{Methods}
+{}[CONTENT: design, sample and power, data, analysis plan per aim]
+
+\section{Timeline}
+\begin{ganttchart}[hgrid,vgrid,x unit=.42cm,y unit chart=.55cm,title label font=\scriptsize,
+  bar label font=\small,bar/.append style={fill=Accent!60}]{1}{24}
+  \gantttitle{Months}{24}\\
+  \ganttbar{[CONTENT: work package 1]}{1}{6}\\
+  \ganttbar{[CONTENT: work package 2]}{5}{18}\\
+  \ganttbar{[CONTENT: dissemination]}{18}{24}
+\end{ganttchart}
+
+\section{Budget}
+\begin{tabularx}{\linewidth}{@{}Xr@{}}
+\toprule
+Item & Amount \\
+\midrule
+{}[CONTENT: personnel] & [CONTENT] \\
+{}[CONTENT: equipment] & [CONTENT] \\
+\midrule
+Total & [CONTENT: computed, not estimated] \\
+\bottomrule
+\end{tabularx}
+
+\section{Risks and mitigation}
+{}[CONTENT]
+
+\section{Expected outcomes and impact}
+{}[CONTENT]
+\end{document}

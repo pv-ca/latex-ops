@@ -1,0 +1,67 @@
+% Lab Report: aim, apparatus, procedure, data with units and uncertainty, analysis, conclusion.
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\setmathfont{Latin Modern Math}
+\setkomafont{disposition}{\sffamily\bfseries}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.5em}
+\sisetup{separate-uncertainty=true}
+
+\begin{document}
+{\sffamily\small LAB REPORT\par}
+{\sffamily\LARGE\bfseries [CONTENT: experiment title]\par}
+{\small [CONTENT: author(s)] \textperiodcentered\ [CONTENT: date] \textperiodcentered\ [CONTENT: lab group]\par}
+
+\section{Aim}
+{}[CONTENT: what was measured and why]
+
+\section{Apparatus and procedure}
+{}[CONTENT: equipment with resolution; numbered steps as performed, not as planned]
+
+\section{Results}
+Report every quantity with unit and uncertainty, e.g.\ \SI{9.79 \pm 0.04}{\metre\per\second\squared}.
+
+\begin{table}[ht]
+\centering
+\caption{[CONTENT: raw measurements]}\label{tab:data}
+\begin{tabular}{S[table-format=1.2] S[table-format=1.3]}
+\toprule
+{$x$ / \si{\metre}} & {$t$ / \si{\second}} \\
+\midrule
+0.00 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=.7\linewidth,height=5cm,xlabel={$x$ / \si{\metre}},ylabel={$t$ / \si{\second}},axis lines=left]
+% Replace with the measured data: \addplot+[only marks,error bars/.cd,y dir=both,y explicit] table[x=x,y=t,y error=dt]{data.csv};
+\addplot[only marks] coordinates {(0,0)};
+\end{axis}
+\end{tikzpicture}
+\caption{[CONTENT: what the plot shows]}\label{fig:data}
+\end{figure}
+
+\section{Analysis}
+{}[CONTENT: method, propagated uncertainty, comparison with the accepted value]
+
+\section{Conclusion}
+{}[CONTENT: result with uncertainty; main sources of error]
+\end{document}

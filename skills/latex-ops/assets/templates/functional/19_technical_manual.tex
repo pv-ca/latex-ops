@@ -1,0 +1,20 @@
+\documentclass[11pt,a4paper]{scrbook}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{xcolor,enumitem}
+\usepackage[hidelinks]{hyperref}
+\definecolor{Accent}{HTML}{315B6B}
+\setkomafont{disposition}{\sffamily\bfseries}
+\newenvironment{notice}[1]{\par\medskip\noindent\textbf{#1}\par\smallskip}{\par\medskip}
+\begin{document}
+\frontmatter\title{Technical Manual}\author{Organization}\maketitle\tableofcontents
+\mainmatter\chapter{Overview}\texttt{\% [CONTENT]}
+\chapter{Procedure}
+\begin{enumerate}\item Perform the first verified action.\item Verify the expected state before continuing.\end{enumerate}
+\begin{notice}{Warning}\texttt{\% [CONTENT: actual safety warning only if supplied]}\end{notice}
+\chapter{Troubleshooting}\texttt{\% [CONTENT: symptom -> cause -> resolution]}
+\chapter{Reference}\texttt{\% [CONTENT]}
+\end{document}

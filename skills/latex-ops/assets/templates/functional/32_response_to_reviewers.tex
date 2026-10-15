@@ -1,0 +1,54 @@
+% Response to Reviewers: point-by-point reply for a journal revision. Quote each comment, answer it,
+% and say exactly what changed and where. Never claim a change that was not made in the manuscript.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{newtxtext,newtxmath}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{Comment}{HTML}{4A4A4A}
+\definecolor{Rule}{HTML}{315B6B}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.5em}
+
+\newcounter{point}[section]
+\renewcommand{\thepoint}{\arabic{section}.\arabic{point}}
+\newenvironment{reviewer}[1]
+  {\refstepcounter{point}\par\medskip\noindent{\color{Rule}\rule[.2em]{3pt}{.8em}}\
+   \textbf{Comment \thepoint}\par\nopagebreak\noindent\begin{minipage}{\linewidth}\color{Comment}\itshape #1\end{minipage}\par\smallskip}
+  {\par}
+\newcommand{\response}{\noindent\textbf{Response.}\ }
+\newcommand{\changes}{\par\noindent\textbf{Changes.}\ }
+
+\begin{document}
+\textbf{Manuscript:} [CONTENT: ID and title]\\
+\textbf{Journal:} [CONTENT]\\
+\textbf{Date:} [CONTENT]
+
+Dear Editor,
+
+{}[CONTENT: one paragraph thanking the reviewers and summarising the main changes.]
+Page and line numbers below refer to the revised manuscript; changes are highlighted in [CONTENT: colour or tracked version].
+
+\section{Reviewer 1}
+
+\begin{reviewer}{[CONTENT: reviewer comment, quoted verbatim]}
+\response [CONTENT: answer; agree, clarify, or explain respectfully why not]
+\changes [CONTENT: what changed, with section, page and line]
+\end{reviewer}
+
+\section{Reviewer 2}
+
+\begin{reviewer}{[CONTENT]}
+\response [CONTENT]
+\changes [CONTENT]
+\end{reviewer}
+
+Sincerely,\\
+{}[CONTENT: corresponding author]
+\end{document}

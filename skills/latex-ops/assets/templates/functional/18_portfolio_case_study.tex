@@ -1,0 +1,18 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}\setsansfont{Inter}}{\setmainfont{Latin Modern Sans}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage{xcolor,graphicx,tabularx}
+\definecolor{Accent}{HTML}{315B6B}\definecolor{Muted}{HTML}{666666}
+\setkomafont{disposition}{\sffamily\bfseries}\setlength{\parindent}{0pt}\setlength{\parskip}{.5em}
+\begin{document}
+{\small\sffamily\bfseries\color{Accent} CASE STUDY\par}{\Huge\bfseries Project Name\par}{\color{Muted} Role · Date · Context\par}
+\section*{Problem}\texttt{\% [CONTENT]}
+\section*{Constraints}\texttt{\% [CONTENT]}
+\section*{Process}Use diagrams/screens/images only when they provide evidence about the work.
+\section*{Solution}\texttt{\% [CONTENT]}
+\section*{Evidence / outcome}\texttt{\% [CONTENT: never invent metrics]}
+\section*{Reflection}\texttt{\% [CONTENT: optional]}
+\end{document}

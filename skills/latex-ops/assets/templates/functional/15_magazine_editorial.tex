@@ -1,0 +1,34 @@
+\documentclass[10.5pt,a4paper]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\IfFontExistsTF{Libertinus Serif}{\setmainfont{Libertinus Serif}\setsansfont{Libertinus Sans}[Scale=0.94]}{\setmainfont{Latin Modern Roman}\setsansfont{Latin Modern Sans}}
+\usepackage{microtype}
+\usepackage[a4paper,margin=20mm]{geometry}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{lettrine}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\definecolor{Accent}{HTML}{A14D32}
+\definecolor{Muted}{HTML}{666666}
+\setkomafont{disposition}{\sffamily\bfseries}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35\baselineskip}
+\begin{document}
+{\small\sffamily\bfseries\color{Accent} EDITORIAL / ISSUE 01\par}
+{\fontsize{32}{36}\selectfont\bfseries Magazine Editorial\par}
+{\large\color{Muted} A disciplined multi-column reference system.\par}
+\vspace{1.2em}\hrule\vspace{1em}
+\begin{multicols}{2}
+\lettrine[lines=3]{E}{ditorial} layouts benefit from a controlled grid, strong opening hierarchy,
+and deliberate variation rather than arbitrary decoration. Captions, pull quotes, and images should
+support the narrative rhythm.
+\section*{Grid and rhythm}
+Use columns when scanning and visual pacing improve. Maintain a stable baseline and consistent gaps.
+\columnbreak
+{\Large\sffamily\bfseries\color{Accent} ``A pull quote earns its scale by clarifying the article's central idea.''\par}
+\vspace{1em}
+\section*{Image logic}
+Large images establish hierarchy. Smaller images provide evidence or detail. Avoid galleries without narrative purpose.
+\end{multicols}
+\end{document}

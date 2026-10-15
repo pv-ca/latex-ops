@@ -1,0 +1,90 @@
+% Research Article: journal-style paper without a venue class. Pair with Minimal Research.
+% When a venue is named, use its official class instead and keep only the structure.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,mathtools,amsthm} % amsthm before newtxmath
+\usepackage{newtxtext,newtxmath}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{subcaption}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\newtheorem{proposition}{Proposition}
+\widowpenalty=10000 \clubpenalty=10000
+
+\title{\vspace{-2em}[CONTENT: title stating the finding]}
+\author{[CONTENT: authors]\\[2pt]{\small [CONTENT: affiliations]}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent % [CONTENT: problem, approach, main result with its number, implication; 150--250 words]
+{}[CONTENT: abstract]
+\end{abstract}
+
+\noindent\textbf{Keywords:} [CONTENT: 3--6 keywords]
+
+\section{Introduction}\label{sec:intro}
+% Problem and why it matters; gap in prior work; contribution stated plainly; outline.
+{}[CONTENT: introduction]
+
+\section{Related work}\label{sec:related}
+{}[CONTENT: positioned against verified sources only]
+
+\section{Method}\label{sec:method}
+Define every symbol at first use.
+\begin{equation}\label{eq:model}
+  y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \qquad \varepsilon_i \sim \mathcal{N}(0,\sigma^2).
+\end{equation}
+
+\section{Results}\label{sec:results}
+\begin{table}[ht]
+\centering
+\caption{[CONTENT: what the reader should see in this table]}\label{tab:main}
+\begin{tabular}{l S[table-format=2.2] S[table-format=1.2] S[table-format=3.0]}
+\toprule
+{Condition} & {Mean} & {SD} & {$n$} \\
+\midrule
+{}[CONTENT] & 0.00 & 0.00 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{.48\linewidth}\centering
+  \fbox{\parbox[c][3cm][c]{.9\linewidth}{\centering\small[CONTENT: panel a, vector PDF]}}
+  \caption{[CONTENT]}\label{fig:a}
+\end{subfigure}\hfill
+\begin{subfigure}{.48\linewidth}\centering
+  \fbox{\parbox[c][3cm][c]{.9\linewidth}{\centering\small[CONTENT: panel b]}}
+  \caption{[CONTENT]}\label{fig:b}
+\end{subfigure}
+\caption{[CONTENT: caption that states the takeaway]}\label{fig:main}
+\end{figure}
+
+As \cref{tab:main} and \cref{fig:main} show, [CONTENT].
+
+\section{Discussion}\label{sec:discussion}
+{}[CONTENT: interpretation, limitations, threats to validity]
+
+\section{Conclusion}
+{}[CONTENT]
+
+\paragraph{Data and code availability.} [CONTENT]
+
+\begin{thebibliography}{9}
+% Only verified entries. Never write an entry from memory.
+\bibitem{key} [CONTENT: verified reference]
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,68 @@
+\documentclass[11pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\IfFontExistsTF{Inter}{%
+  \setmainfont{Inter}
+  \setsansfont{Inter}
+}{%
+  \setmainfont{Latin Modern Sans}
+  \setsansfont{Latin Modern Sans}
+}
+
+\definecolor{Accent}{HTML}{315B6B}
+\definecolor{Muted}{HTML}{666666}
+\definecolor{Light}{HTML}{F2F3F3}
+
+\setkomafont{disposition}{\sffamily\bfseries}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip}
+
+\newenvironment{finding}[1]
+{\par\medskip\noindent\begin{minipage}{\linewidth}
+ \color{Accent}\rule{\linewidth}{0.5pt}\par\smallskip
+ {\sffamily\bfseries #1}\par\smallskip\normalcolor}
+{\par\smallskip\color{Accent}\rule{\linewidth}{0.5pt}\normalcolor
+ \end{minipage}\par\medskip}
+
+\begin{document}
+
+{\small\sffamily\bfseries\color{Muted}ASSESSMENT REPORT\par}
+\vspace{0.4\baselineskip}
+{\Huge\bfseries Student Performance\par}
+\vspace{0.5\baselineskip}
+{\large\color{Muted}Professional reporting with strong scanning efficiency.\par}
+
+\vspace{2\baselineskip}
+
+\section{Executive summary}
+Separate observed evidence from interpretation and recommendation.
+
+\begin{finding}{Key finding}
+Use a restrained callout only for information that genuinely needs a separate reading mode.
+\end{finding}
+
+\section{Performance overview}
+\begin{tabularx}{\linewidth}{@{}Xll@{}}
+\toprule
+Area & Evidence & Priority \\
+\midrule
+Grammar & Source-derived observation & High \\
+Vocabulary & Source-derived observation & Medium \\
+Production & Source-derived observation & Medium \\
+\bottomrule
+\end{tabularx}
+
+\section{Next steps}
+Recommendations should be traceable to supplied evidence. Never manufacture diagnostic
+precision merely because the report layout provides a place for it.
+
+\end{document}
