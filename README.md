@@ -6,14 +6,9 @@
   <img src="docs/branding/latex-ops-light.png" alt="latex-ops: document icon with an integral symbol and the project wordmark" width="320">
 </picture>
 
-### Academic LaTeX, compiled and checked.
+### Your agent for academic LaTeX.
 
-[![Agent Skills](https://img.shields.io/badge/Agent_Skills-SKILL.md-5c4ee5?style=flat-square)](https://agentskills.io)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-d97757?style=flat-square)](#install)
-[![Codex](https://img.shields.io/badge/Codex-skill-10a37f?style=flat-square)](#install)
 [![CI: Linux · Windows](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml/badge.svg)](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml)
-![Windows · macOS · Linux](https://img.shields.io/badge/Windows_·_macOS_·_Linux-supported-2f6f8f?style=flat-square)
-[![ABNT](https://img.shields.io/badge/ABNT-abnTeX2-009c3b?style=flat-square)](#what-is-inside)
 [![MIT license](https://img.shields.io/badge/license-MIT-f4c430?style=flat-square)](LICENSE)
 
 **English** · [Português (Brasil)](docs/readme/README_pt-BR.md)
@@ -32,7 +27,7 @@
 
 You ask your agent for a paper, a thesis chapter, lecture notes or a problem set. It writes LaTeX that compiles, says the PDF is ready, and you open it to find a table running off the page, a heading stranded at the bottom, a plot whose legend covers the data, or a citation it made up.
 
-**latex-ops** is an [Agent Skill](https://agentskills.io) that changes how the agent works on LaTeX. It chooses a document structure and a visual style that fit the reader, writes the source with the mathematics and statistics done properly, compiles it, renders and inspects pages with declared coverage, fixes what it sees, and tells you exactly what it checked. It never invents a citation, a number or a requirement it was not given.
+**latex-ops** is your agent for academic LaTeX. It works as an [Agent Skill](https://agentskills.io) in Claude Code, Codex and other compatible tools. It chooses a document structure and a visual style that fit the reader, writes the source with the mathematics and statistics done properly, compiles it, renders and inspects pages with declared coverage, fixes what it sees, and tells you exactly what it checked. It never invents a citation, a number or a requirement it was not given.
 
 It is built for academic work first (articles, conference papers, theses, ABNT work in Brazil, proposals, reports, lecture notes, problem sets, posters and talks) and also covers the professional documents in its template set. It runs wherever Agent Skills run, on Windows, macOS and Linux.
 

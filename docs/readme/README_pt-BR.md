@@ -6,14 +6,9 @@
   <img src="../branding/latex-ops-light.png" alt="latex-ops: ícone de documento com símbolo de integral e nome do projeto" width="320">
 </picture>
 
-### LaTeX acadêmico, compilado e conferido.
+### Seu agente para LaTeX acadêmico.
 
-[![Agent Skills](https://img.shields.io/badge/Agent_Skills-SKILL.md-5c4ee5?style=flat-square)](https://agentskills.io)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-d97757?style=flat-square)](#instalação)
-[![Codex](https://img.shields.io/badge/Codex-skill-10a37f?style=flat-square)](#instalação)
 [![CI: Linux · Windows](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml/badge.svg)](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml)
-![Windows · macOS · Linux](https://img.shields.io/badge/Windows_·_macOS_·_Linux-compatível-2f6f8f?style=flat-square)
-[![ABNT](https://img.shields.io/badge/ABNT-abnTeX2-009c3b?style=flat-square)](#o-que-vem-incluído)
 [![Licença MIT](https://img.shields.io/badge/licença-MIT-f4c430?style=flat-square)](../../LICENSE)
 
 [English](../../README.md) · **Português (Brasil)**
@@ -32,7 +27,7 @@
 
 Você pede ao seu agente um artigo, um capítulo de tese, notas de aula ou uma lista de exercícios. Ele escreve um LaTeX que compila, diz que o PDF está pronto, e ao abrir você encontra uma tabela saindo da página, um título sozinho no pé da página, um gráfico com a legenda em cima dos dados ou uma citação inventada.
 
-O **latex-ops** é uma [Agent Skill](https://agentskills.io) que muda a forma como o agente trabalha com LaTeX. Ele escolhe uma estrutura de documento e um estilo visual adequados ao leitor, escreve o código com a matemática e a estatística feitas do jeito certo, compila, renderiza e inspeciona páginas com cobertura declarada, corrige o que encontra e diz exatamente o que conferiu. Ele nunca inventa uma citação, um número ou uma exigência que não recebeu.
+O **latex-ops** é seu agente para LaTeX acadêmico. Ele funciona como uma [Agent Skill](https://agentskills.io) no Claude Code, no Codex e em outras ferramentas compatíveis. Ele escolhe uma estrutura de documento e um estilo visual adequados ao leitor, escreve o código com a matemática e a estatística feitas do jeito certo, compila, renderiza e inspeciona páginas com cobertura declarada, corrige o que encontra e diz exatamente o que conferiu. Ele nunca inventa uma citação, um número ou uma exigência que não recebeu.
 
 O foco é o trabalho acadêmico (artigos, artigos de conferência, teses, trabalhos na ABNT, propostas, relatórios, notas de aula, listas de exercícios, pôsteres e apresentações), e ele também cobre os documentos profissionais do seu conjunto de templates. Funciona onde as Agent Skills funcionam, no Windows, no macOS e no Linux.
 
