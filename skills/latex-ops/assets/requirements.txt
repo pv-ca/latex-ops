@@ -41,7 +41,6 @@ koma-script scrartcl.cls
 kvdefinekeys kvdefinekeys.sty
 kvoptions kvoptions.sty
 kvsetkeys kvsetkeys.sty
-l3backend l3backend-luatex.def
 l3kernel expl3.sty
 l3packages xparse.sty
 latex article.cls
