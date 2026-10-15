@@ -82,6 +82,18 @@ class RealBuild(unittest.TestCase):
         (self.source / 'chapter.tex').write_text(r'\section{One}\label{one}See \cite{example}.', encoding='utf-8')
         self.compile(r'\documentclass{article}\begin{document}\input{chapter}See \ref{one}.\bibliographystyle{plain}\bibliography{data/refs}\end{document}')
 
+    def test_contents_entry_is_in_pdf_without_labels_or_rerun_warning(self):
+        # Uncompressed pdfTeX text lets this fixture check the actual output:
+        # one occurrence in the heading and one in the table of contents.
+        self.compile(r'\pdfcompresslevel=0\pdfobjcompresslevel=0\documentclass{article}\begin{document}\tableofcontents\section{ZZZZZZ}Body.\end{document}')
+        pdf = (self.out / (self.tex.stem + '.pdf')).read_bytes()
+        self.assertEqual(pdf.count(b'(ZZZZZZ)'), 2, 'heading and contents entry must both be present')
+
+    def test_bibliography_inside_included_source(self):
+        (self.source / 'chapter.tex').write_text(r'\section{Chapter}\cite{example}\bibliographystyle{plain}\bibliography{data/refs}', encoding='utf-8')
+        self.compile(r'\documentclass{article}\begin{document}\include{chapter}\end{document}')
+        self.assertIn('Fixture Book', (self.out / (self.tex.stem + '.bbl')).read_text(encoding='utf-8'))
+
     def test_untrusted_rc_is_not_loaded(self):
         (self.source / '.latexmkrc').write_text('die "CONFIG_CANARY_LOADED";\n', encoding='utf-8')
         self.compile(r'\documentclass{article}\begin{document}Test\end{document}', True)

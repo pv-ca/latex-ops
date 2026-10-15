@@ -122,6 +122,33 @@ def _source_environment(cwd):
     return env
 
 
+def _aux_tree(aux):
+    """Read the current job's included auxiliaries as data, never as code."""
+    pending, records = [aux], {}
+    while pending:
+        path = pending.pop().resolve()
+        if path in records:
+            continue
+        text = _read(path)
+        records[path] = text
+        pending.extend(path.parent / name for name in re.findall(r"\\@input\{([^}]+)\}", text))
+    return records
+
+
+def _bibtex_digest(aux):
+    records = _aux_tree(aux)
+    if not any("\\bibdata" in text for text in records.values()):
+        return None
+    content = "\0".join(str(path) + "\0" + text for path, text in records.items())
+    return hashlib.sha256(content.encode("utf-8")).hexdigest()
+
+
+def _auxiliary_state(aux):
+    paths = set(_aux_tree(aux))
+    paths.update(aux.parent / (aux.stem + extension) for extension in (".toc", ".lof", ".lot", ".out"))
+    return {path: _digest(path) if path.is_file() else None for path in paths}
+
+
 def _fallback(tex, engine, cwd, out, flags, timeout, initial):
     exe = shutil.which(engine)
     if not exe:
@@ -133,7 +160,8 @@ def _fallback(tex, engine, cwd, out, flags, timeout, initial):
     processed = {}
     # One initial pass and at most four further passes. Backend work always
     # requires another TeX pass; its exit status is never replaced by TeX's.
-    for _ in range(5):
+    for pass_number in range(5):
+        before_aux = _auxiliary_state(artifact(".aux"))
         code = run(cmd, cwd, timeout)
         if code != 0:
             return code
@@ -141,13 +169,13 @@ def _fallback(tex, engine, cwd, out, flags, timeout, initial):
         jobs = []
         if bcf.is_file() and _signature(bcf) != initial[".bcf"]:
             jobs.append(("biber", bcf, ".bbl"))
-        elif aux.is_file() and _signature(aux) != initial[".aux"] and "\\bibdata" in _read(aux):
+        elif aux.is_file() and _signature(aux) != initial[".aux"] and _bibtex_digest(aux):
             jobs.append(("bibtex", aux, ".bbl"))
         if idx.is_file() and _signature(idx) != initial[".idx"] and "\\indexentry" in _read(idx):
             jobs.append(("makeindex", idx, ".ind"))
         backend_ran = False
         for tool, control, extension in jobs:
-            digest = _digest(control)
+            digest = _bibtex_digest(control) if tool == "bibtex" else _digest(control)
             if processed.get(tool) == digest:
                 continue
             backend = shutil.which(tool)
@@ -174,7 +202,8 @@ def _fallback(tex, engine, cwd, out, flags, timeout, initial):
                 return 1
             processed[tool] = digest
             backend_ran = True
-        if not backend_ran and not RERUN.search(_read(artifact(".log"))):
+        stable = before_aux == _auxiliary_state(aux)
+        if pass_number > 0 and stable and not backend_ran and not RERUN.search(_read(artifact(".log"))):
             return 0
     print("build did not stabilize after five TeX passes")
     return 1

@@ -30,6 +30,8 @@ class BuildFlow(unittest.TestCase):
         self.backend_code = 0
         self.index = False
         self.unstable = False
+        self.changing_toc = False
+        self.nested_bibliography = False
         self.write_pdf = True
         self.calls = []
         self.missing = set()
@@ -55,6 +57,11 @@ class BuildFlow(unittest.TestCase):
             if self.backend == 'biber':
                 self.artifact('.bcf').write_text('control', encoding='utf-8')
             self.artifact('.aux').write_text(r'\bibdata{refs}' if self.backend == 'bibtex' else '', encoding='utf-8')
+            if self.nested_bibliography:
+                self.artifact('.aux').write_text(r'\@input{chapter.v1.aux}', encoding='utf-8')
+                (self.out / 'chapter.v1.aux').write_text(r'\bibdata{refs}', encoding='utf-8')
+            if self.changing_toc:
+                self.artifact('.toc').write_text(str(len(self.calls)), encoding='utf-8')
             if self.index:
                 self.artifact('.idx').write_text(r'\indexentry{term}{1}', encoding='utf-8')
             return 0
@@ -122,6 +129,24 @@ class BuildFlow(unittest.TestCase):
     def test_missing_makeindex_is_a_failure(self):
         self.index = True
         self.missing.add('makeindex')
+        self.assertNotEqual(self.compile()[0], 0)
+
+    def test_initial_pass_is_followed_by_a_readback_pass(self):
+        self.assertEqual(self.compile()[0], 0)
+        self.assertGreaterEqual(sum(c[0] == 'lualatex' for c in self.calls), 2)
+
+    def test_changing_contents_without_rerun_warning_is_a_failure(self):
+        self.changing_toc = True
+        self.assertNotEqual(self.compile()[0], 0)
+
+    def test_bibliography_in_included_aux_runs_bibtex(self):
+        self.nested_bibliography = True
+        self.assertEqual(self.compile()[0], 0)
+        self.assertTrue(any(c[0] == 'bibtex' for c in self.calls))
+
+    def test_missing_backend_for_included_bibliography_fails(self):
+        self.nested_bibliography = True
+        self.missing.add('bibtex')
         self.assertNotEqual(self.compile()[0], 0)
 
     def test_unsettled_references_are_a_failure(self):
