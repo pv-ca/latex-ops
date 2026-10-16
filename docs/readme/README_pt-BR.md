@@ -1,7 +1,7 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../branding/latex-ops-surreal-dark.png">
+  <source media="(prefers-color-scheme: dark)" srcset="../branding/latex-ops-surreal-textured-natural-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="../branding/latex-ops-surreal-light.png">
   <img src="../branding/latex-ops-surreal-light.png" alt="latex-ops: um tipógrafo opera uma prensa que produz uma página acadêmica descomunal" width="340">
 </picture>
