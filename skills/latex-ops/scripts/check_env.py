@@ -20,8 +20,8 @@ TOOLS = ["lualatex", "xelatex", "pdflatex", "latexmk", "perl", "biber", "bibtex"
          "gs", "gswin64c", "rungs"]
 TINYTEX = {
     "Windows": "Download and run https://yihui.org/tinytex/install-bin-windows.bat (no admin needed)",
-    "Darwin": 'curl -sL "https://yihui.org/tinytex/install-bin-unix.sh" | sh',
-    "Linux": 'wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh',
+    "Darwin": "Download https://yihui.org/tinytex/install-bin-unix.sh, read it, then run it with sh",
+    "Linux": "Download https://yihui.org/tinytex/install-bin-unix.sh, read it, then run it with sh",
 }
 
 
