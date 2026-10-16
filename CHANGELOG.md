@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3 — 2026-10-16
+
+- Replace the piped `curl | sh` and `wget | sh` TinyTeX install hints for Linux and macOS with download, read and run instructions.
+- Add the surreal typesetter project identity (light and dark) to both README headers.
+
 ## 0.1.2 — 2026-10-15
 
 - Propagate missing or failing Biber, BibTeX and makeindex backends in fallback builds. Preserve full dotted job names and resolve bibliographies with separate source/output directories.

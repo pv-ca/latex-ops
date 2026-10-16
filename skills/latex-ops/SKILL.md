@@ -4,7 +4,7 @@ description: Write, format, fix and compile academic and professional LaTeX that
 license: MIT
 compatibility: Needs a TeX distribution with LuaLaTeX (TeX Live or TinyTeX recommended; MiKTeX works) and Python 3.8+ for the helper scripts. Works on Windows, macOS and Linux.
 metadata:
-  version: "0.1.2"
+  version: "0.1.3"
 ---
 
 # latex-ops

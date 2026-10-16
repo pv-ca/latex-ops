@@ -1,6 +1,6 @@
 {
   "name": "latex-ops",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Create, repair and compile academic LaTeX, then inspect the PDF. Includes templates, mathematics, statistics and ABNT guidance.",
   "author": {
     "name": "pv-ca",
