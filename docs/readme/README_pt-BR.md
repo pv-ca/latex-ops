@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../branding/latex-ops-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="../branding/latex-ops-light.png">
-  <img src="../branding/latex-ops-light.png" alt="latex-ops: ícone de documento com símbolo de integral e nome do projeto" width="320">
+  <source media="(prefers-color-scheme: dark)" srcset="../branding/latex-ops-surreal-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="../branding/latex-ops-surreal-light.png">
+  <img src="../branding/latex-ops-surreal-light.png" alt="latex-ops: um tipógrafo opera uma prensa que produz uma página acadêmica descomunal" width="420">
 </picture>
 
 ### Seu agente para LaTeX acadêmico.
