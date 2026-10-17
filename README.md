@@ -8,7 +8,9 @@
 
 ### Your agent for academic LaTeX.
 
-Claude Code · Codex · [MIT](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-d97757?style=flat-square)](#install)
+[![Codex](https://img.shields.io/badge/Codex-skill-10a37f?style=flat-square)](#install)
+[![MIT](https://img.shields.io/badge/license-MIT-f4c430?style=flat-square)](LICENSE)
 
 **English** · [Português (Brasil)](docs/readme/README_pt-BR.md)
 
