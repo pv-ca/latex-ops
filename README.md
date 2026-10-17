@@ -8,28 +8,23 @@
 
 ### Your agent for academic LaTeX.
 
-[![CI: Linux · Windows](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml/badge.svg)](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml)
-[![MIT license](https://img.shields.io/badge/license-MIT-f4c430?style=flat-square)](LICENSE)
+Claude Code · Codex · [MIT](LICENSE)
 
 **English** · [Português (Brasil)](docs/readme/README_pt-BR.md)
 
-[Install](#install) · [What it does](#what-it-does) · [Examples](#examples) · [What is inside](#what-is-inside) · [Requirements](#requirements) · [Evaluation](#evaluation) · [FAQ](#faq)
-
-<code>npx skills add https://github.com/pv-ca/latex-ops --skill latex-ops</code>
-
-<br><br>
-
-<img src="docs/showcase/paper.png" alt="Two pages of a research note produced with latex-ops: theorem, proof, algorithm, plot and table" width="760">
+[Install](#install) · [What it does](#what-it-does) · [Examples](#examples) · [Documentation](#documentation)
 
 </div>
 
 ---
 
-You ask your agent for a paper, a thesis chapter, lecture notes or a problem set. It writes LaTeX that compiles, says the PDF is ready, and you open it to find a table running off the page, a heading stranded at the bottom, a plot whose legend covers the data, or a citation it made up.
+**latex-ops** helps your agent create papers, theses, reports and other academic documents in LaTeX. It chooses a structure and style, compiles the document and inspects rendered pages, reporting what it checked. It works with Claude Code, Codex and other Agent Skills-compatible tools.
 
-**latex-ops** is your agent for academic LaTeX. It works as an [Agent Skill](https://agentskills.io) in Claude Code, Codex and other compatible tools. It chooses a document structure and a visual style that fit the reader, writes the source with the mathematics and statistics done properly, compiles it, renders and inspects pages with declared coverage, fixes what it sees, and tells you exactly what it checked. It never invents a citation, a number or a requirement it was not given.
+## An example of the result
 
-It is built for academic work first (articles, conference papers, theses, ABNT work in Brazil, proposals, reports, lecture notes, problem sets, posters and talks) and also covers the professional documents in its template set. It runs wherever Agent Skills run, on Windows, macOS and Linux.
+<img src="docs/showcase/paper.png" alt="Example paper included in the repository. The image shows two pages of the PDF." width="760">
+
+Example paper included in the repository. The image shows two pages of the PDF.
 
 ## Install
 
@@ -288,6 +283,16 @@ python3 tests/build_templates.py            # compile every template and example
 ```
 
 Issues and pull requests are welcome. A new template should compile with only the packages in `requirements.txt` (add any it needs) and come with an entry in `references/functional-templates.md`.
+
+## Documentation
+
+- [Requirements](#requirements)
+- [Evaluation](#evaluation)
+- [FAQ](#faq)
+- [Compatibility and verification](#compatibility-and-verification)
+- [Troubleshooting](#troubleshooting)
+- [Repository layout](#repository-layout)
+- [Development](#development)
 
 ## License
 

@@ -8,28 +8,23 @@
 
 ### Seu agente para LaTeX acadêmico.
 
-[![CI: Linux · Windows](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml/badge.svg)](https://github.com/pv-ca/latex-ops/actions/workflows/ci.yml)
-[![Licença MIT](https://img.shields.io/badge/licença-MIT-f4c430?style=flat-square)](../../LICENSE)
+Claude Code · Codex · [MIT](../../LICENSE)
 
 [English](../../README.md) · **Português (Brasil)**
 
-[Instalação](#instalação) · [O que faz](#o-que-faz) · [Exemplos](#exemplos) · [O que vem incluído](#o-que-vem-incluído) · [Requisitos](#requisitos) · [Avaliação](#avaliação) · [Perguntas frequentes](#perguntas-frequentes)
-
-<code>npx skills add https://github.com/pv-ca/latex-ops --skill latex-ops</code>
-
-<br><br>
-
-<img src="../showcase/paper.png" alt="Duas páginas de uma nota de pesquisa feita com latex-ops: teorema, prova, algoritmo, gráfico e tabela" width="760">
+[Instalação](#instalação) · [O que faz](#o-que-faz) · [Exemplos](#exemplos) · [Documentação](#documentação)
 
 </div>
 
 ---
 
-Você pede ao seu agente um artigo, um capítulo de tese, notas de aula ou uma lista de exercícios. Ele escreve um LaTeX que compila, diz que o PDF está pronto, e ao abrir você encontra uma tabela saindo da página, um título sozinho no pé da página, um gráfico com a legenda em cima dos dados ou uma citação inventada.
+O **latex-ops** ajuda seu agente a criar artigos, teses, relatórios e outros documentos acadêmicos em LaTeX. Escolhe estrutura e estilo, compila o documento e inspeciona páginas renderizadas, informando o que foi conferido. Funciona no Claude Code, no Codex e em outros agentes compatíveis com Agent Skills.
 
-O **latex-ops** é seu agente para LaTeX acadêmico. Ele funciona como uma [Agent Skill](https://agentskills.io) no Claude Code, no Codex e em outras ferramentas compatíveis. Ele escolhe uma estrutura de documento e um estilo visual adequados ao leitor, escreve o código com a matemática e a estatística feitas do jeito certo, compila, renderiza e inspeciona páginas com cobertura declarada, corrige o que encontra e diz exatamente o que conferiu. Ele nunca inventa uma citação, um número ou uma exigência que não recebeu.
+## Um exemplo do resultado
 
-O foco é o trabalho acadêmico (artigos, artigos de conferência, teses, trabalhos na ABNT, propostas, relatórios, notas de aula, listas de exercícios, pôsteres e apresentações), e ele também cobre os documentos profissionais do seu conjunto de templates. Funciona onde as Agent Skills funcionam, no Windows, no macOS e no Linux.
+<img src="../showcase/paper.png" alt="Artigo de exemplo incluído no repositório. A imagem mostra duas páginas do PDF." width="760">
+
+Artigo de exemplo incluído no repositório. A imagem mostra duas páginas do PDF.
 
 ## Instalação
 
@@ -288,6 +283,16 @@ python3 tests/build_templates.py            # compila todos os templates e exemp
 ```
 
 Issues e pull requests são bem-vindos. Um template novo precisa compilar só com os pacotes de `requirements.txt` (acrescente os que ele usar) e vir com uma entrada em `references/functional-templates.md`.
+
+## Documentação
+
+- [Requisitos](#requisitos)
+- [Avaliação](#avaliação)
+- [Perguntas frequentes](#perguntas-frequentes)
+- [Compatibilidade e verificação](#compatibilidade-e-verificação)
+- [Solução de problemas](#solução-de-problemas)
+- [Estrutura do repositório](#estrutura-do-repositório)
+- [Desenvolvimento](#desenvolvimento)
 
 ## Licença
 
