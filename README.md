@@ -24,9 +24,9 @@
 
 ## An example of the result
 
-<img src="docs/showcase/paper.png" alt="Example paper included in the repository. The image shows two pages of the PDF." width="760">
+<a href="docs/showcase/paper.png"><img src="docs/showcase/paper.png" alt="Paper: complete first page with an enlarged plot and table from page two" width="760"></a>
 
-Example paper included in the repository. The image shows two pages of the PDF.
+Mathematics, an algorithm, a plot and a table. First page and enlarged details from page two. [View source](examples/paper.tex).
 
 ## Install
 
@@ -119,11 +119,29 @@ your request ─▶ choose template + preset ─▶ write the source ─▶ comp
 
 These examples were produced with the skill. CI recompiles them and renders their first pages; that automated check does not inspect the layout. Sources are in [`examples/`](examples/).
 
-| Problem set with solutions from the same source | Research proposal with an undecided budget |
-| --- | --- |
-| <img src="docs/showcase/problem-set.png" alt="Problem set" width="380"> | <img src="docs/showcase/proposal.png" alt="Research proposal" width="380"> |
+### Problem set with solutions
 
-<img src="docs/showcase/slides.png" alt="Beamer talk" width="760">
+Excerpt showing the first two problems and their solutions; the same source can hide the answers.
+
+<a href="docs/showcase/problem-set.png"><img src="docs/showcase/problem-set.png" alt="Heading and two linear algebra problems with solutions" width="760"></a>
+
+[View source](examples/problem-set.tex).
+
+### Research proposal
+
+Excerpts showing methods, a timeline and a budget; amounts not supplied remain visibly pending.
+
+<a href="docs/showcase/proposal.png"><img src="docs/showcase/proposal.png" alt="Proposal excerpts with enlarged timeline and pending budget" width="760"></a>
+
+[View source](examples/proposal.tex).
+
+### Beamer presentation
+
+Complete slide 4: a plot and a results table on the same slide.
+
+<a href="docs/showcase/slides.png"><img src="docs/showcase/slides.png" alt="Complete slide with a convergence plot and an iteration table" width="760"></a>
+
+[View source](examples/slides.tex).
 
 Things you can ask:
 

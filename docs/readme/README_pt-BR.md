@@ -24,9 +24,9 @@ O **latex-ops** ajuda seu agente a criar artigos, teses, relatórios e outros do
 
 ## Um exemplo do resultado
 
-<img src="../showcase/paper.png" alt="Artigo de exemplo incluído no repositório. A imagem mostra duas páginas do PDF." width="760">
+<a href="../showcase/paper.png"><img src="../showcase/paper.png" alt="Artigo: primeira página inteira e ampliação do gráfico e da tabela da segunda página" width="760"></a>
 
-Artigo de exemplo incluído no repositório. A imagem mostra duas páginas do PDF.
+Matemática, algoritmo, gráfico e tabela. Primeira página e detalhes ampliados da segunda. [Ver fonte](../../examples/paper.tex).
 
 ## Instalação
 
@@ -119,11 +119,29 @@ seu pedido ─▶ escolhe template + preset ─▶ escreve o código ─▶ comp
 
 Estes exemplos foram feitos com a skill. O CI os recompila e renderiza a primeira página de cada um; essa verificação automática não inspeciona o layout. Os fontes estão em [`examples/`](../../examples/).
 
-| Lista de exercícios com gabarito no mesmo arquivo | Proposta de pesquisa com orçamento ainda não definido |
-| --- | --- |
-| <img src="../showcase/problem-set.png" alt="Lista de exercícios" width="380"> | <img src="../showcase/proposal.png" alt="Proposta de pesquisa" width="380"> |
+### Exercícios com soluções
 
-<img src="../showcase/slides.png" alt="Apresentação em Beamer" width="760">
+Trecho com os dois primeiros exercícios e suas soluções; o mesmo fonte permite ocultar as respostas.
+
+<a href="../showcase/problem-set.png"><img src="../showcase/problem-set.png" alt="Cabeçalho e dois exercícios de álgebra linear com soluções" width="760"></a>
+
+[Ver fonte](../../examples/problem-set.tex).
+
+### Proposta de pesquisa
+
+Trechos do projeto com métodos, cronograma e orçamento; valores não fornecidos permanecem marcados como pendentes.
+
+<a href="../showcase/proposal.png"><img src="../showcase/proposal.png" alt="Trechos da proposta com cronograma e orçamento pendente ampliados" width="760"></a>
+
+[Ver fonte](../../examples/proposal.tex).
+
+### Apresentação em Beamer
+
+Slide 4 completo: gráfico e tabela de resultados na mesma lâmina.
+
+<a href="../showcase/slides.png"><img src="../showcase/slides.png" alt="Slide completo com gráfico de convergência e tabela de iterações" width="760"></a>
+
+[Ver fonte](../../examples/slides.tex).
 
 Pedidos que você pode fazer:
 
