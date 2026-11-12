@@ -1,12 +1,10 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/branding/latex-ops-surreal-textured-natural-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="docs/branding/latex-ops-surreal-textured-natural-light.png">
-  <img src="docs/branding/latex-ops-surreal-textured-natural-light.png" alt="latex-ops: a typesetter operates a small press producing an enormous academic page" width="340">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/branding/latex-ops-banner-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/branding/latex-ops-banner-light.png">
+  <img src="docs/branding/latex-ops-banner-light.png" alt="latex-ops: pixel-art 32-bit scene of a typesetter operating a small press that produces an enormous academic page, with the name and the line “Your agent for academic LaTeX.”" width="100%">
 </picture>
-
-### Your agent for academic LaTeX.
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-skill-d97757?style=flat-square)](#install)
 [![Codex](https://img.shields.io/badge/Codex-skill-10a37f?style=flat-square)](#install)
